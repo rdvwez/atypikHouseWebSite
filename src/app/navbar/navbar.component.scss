@@ -1,0 +1,46 @@
+
+
+ .nav-item  {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    
+  }
+
+
+  .handle-small-text{
+      color:#111;
+      font-size: small;
+      font-weight: bolder;
+  }
+  
+  .handle-nav-item{
+      text-align: center;
+    color:#111;
+    text-decoration: none;
+    font-size:x-large;
+
+
+}
+.handle-nav-item:hover{
+    color: red;
+    background-color: rgba(255, 255, 255, 0.349);
+    border-right-style: solid;
+    border-left-style: solid;
+}
+
+
+  @media (min-width: 768px) {
+    .handeling-logo {
+        position: relative;
+        top: 0%;
+      width: 20;
+      height: 20;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
