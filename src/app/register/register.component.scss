@@ -1,11 +1,20 @@
+
+      .contain {
+        background-image: url('../../assets/images/bg1.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
       h2 {
         text-align: center;
+        color: white;
       }
       
       .main-agileinfo {
-        width: 40%;
-        margin: -1em auto;
-        background: rgba(0, 0, 0, 0.18);
+        width: 35%;
+        margin: 0em auto;
+        background-color: rgba(0,0,0,0.5) !important;
         background-size: cover;
       }
       
@@ -29,6 +38,7 @@
         background-position: -800px 0;
         background-size: 100%;
         background-repeat: no-repeat;
+        background-color: #fff;
         color: black;
         font-family: 'Roboto', sans-serif;
         border-radius: 7px;
@@ -46,7 +56,7 @@
       }
       
       .text:focus::-webkit-input-placeholder, .text:valid::-webkit-input-placeholder {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(15, 15, 15, 0.7);
         font-size: .9em;
         -webkit-transform: translateY(-30px);
         -moz-transform: translateY(-30px);
@@ -63,10 +73,10 @@
       
       input[type="submit"] {
         font-size: .9em;
-        color: #fff;
-        background: blue;
+        color: black;
+        background: white;
         outline: none;
-        border: 1px solid blue;
+        border: 1px solid white;
         cursor: pointer;
         padding: 0.9em;
         -webkit-appearance: none;
@@ -78,18 +88,22 @@
       
       .agileits-top p {
         font-size: 1em;
-        color: black;
+        color: white;
         text-align: center;
         letter-spacing: 1px;
         font-weight: 300;
       }
       
       .agileits-top p a {
-        color: blue;
+        color: 3B5998;
         -webkit-transition: .5s all;
         -moz-transition: .5s all;
         transition: .5s all;
         font-weight: 400;
+      }
+
+      label {
+        color: #fff;
       }
       
       /*-- checkbox --*/
