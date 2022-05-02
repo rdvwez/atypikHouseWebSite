@@ -18,15 +18,23 @@
       text-align: center;
     color:#111;
     text-decoration: none;
-    font-size:x-large;
+    // font-size:x-large;
+    font-size: 1.2rem;
+    // border-radius: 5px;
 
 
 }
 .handle-nav-item:hover{
-    color: red;
-    background-color: rgba(255, 255, 255, 0.349);
+    
+    background-color: rgba(26, 22, 22, 0.185);
+    // background-color: rgba(255, 255, 255, 0.349);
     border-right-style: solid;
     border-left-style: solid;
+    border-right-width: 0.3vh;
+    border-left-width: 0.3vh;
+    // font-size: 1.3rem;
+    transition: 0.3s;
+    // border-radius: 5px;
 }
 
 
@@ -44,3 +52,36 @@
       font-size: 3.5rem;
     }
   }
+
+  .handle-login{
+    display: inline block;
+    position: relative;
+    right: 0px;
+    
+  }
+
+  .handle-nav-margin{
+    
+    // background: #000;
+    margin-left: auto;
+    // margin-right:1%;
+  }
+
+  .handle-login-register-margin{
+    margin-right: 0%;
+    margin-left: auto;
+  }
+
+  .active{
+    background-color: rgba(26, 22, 22, 0.185);
+  }
+
+  // @media (min-width: 768px) {
+  //   .manage{
+  //     position: absolut;
+  //     width: auto;
+  //     right: 10%;
+  //     background: #000;
+  //   }
+  // }
+  
