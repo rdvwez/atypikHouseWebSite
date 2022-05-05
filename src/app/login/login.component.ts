@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid){
       this.authService.login(this.loginForm.getRawValue()).subscribe(
         () => {
-        this.router.navigateByUrl('/userAcount')
+        this.router.navigateByUrl('/profil')
       },
       (err)=> {
         this.error = err?.error || 'une erreur est survenue'

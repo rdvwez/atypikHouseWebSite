@@ -22,6 +22,7 @@ export class LocationService {
       city: "corbil esson",
       postalCode: 91100,
       country: "France",
+      image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
     }
   ]);
   public house$: BehaviorSubject<House[]> = new BehaviorSubject(
@@ -39,6 +40,7 @@ export class LocationService {
       city: "corbil esson",
       postalCode: 91100,
       country: "France",
+      image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
     },
     {
       libelle: "ndako",
@@ -53,6 +55,7 @@ export class LocationService {
       city: "villeneuve saint georges",
       postalCode: 93100,
       country: "France",
+      image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
     },
     {
       libelle: "cabanette",

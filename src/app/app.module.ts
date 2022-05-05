@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AccountComponent } from './account/account.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     DestinationsComponent,
     SearchbarComponent,
     LocationListComponent,
-    RegisterComponent
+    RegisterComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
