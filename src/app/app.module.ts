@@ -13,6 +13,7 @@ import { SearchbarComponent } from './body/searchbar/searchbar.component';
 import { LocationListComponent } from './body/location-list/location-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -32,6 +33,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [],

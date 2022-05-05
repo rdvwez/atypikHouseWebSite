@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
-                    <h3>Sign In</h3>
+                    <h3>Connexion</h3>
                     <div class="d-flex justify-content-end social_icon">
                         <span><i class="fab fa-facebook-square"></i></span>
                         <span><i class="fab fa-google-plus-square"></i></span>
@@ -21,35 +21,33 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="username" required>
-                            
+                <span *ngIf="error"> {{error}}</span>
+                   <form [formGroup]="loginForm"  (ngSubmit)="submit()">
+                        
+
+                        <div class="form-floating m-3">
+                            <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email </label>
                         </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="password" required>
+                        <div class="form-floating m-3" >
+                            <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Mot de passe</label>
                         </div>
-                        <div class="row align-items-center remember">
-                            <input type="checkbox">Remember Me
+
+                        <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me"> se soiuvenir de moi
+                        </label>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" value="Login" class="btn float-right login_btn">
-                        </div>
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Se connecter</button>
+                        <p class="mt-5 mb-3 text-muted">&copy; atypikHouse 2022</p>
                     </form>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
-                        Don't have an account?<a href="#">Sign Up</a>
+                        N'avez vous pas de compte?<a href="#">Créer un compte</a>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <a href="#">Forgot your password?</a>
-                    </div>
+                   
                 </div>
             </div>
         </div>
