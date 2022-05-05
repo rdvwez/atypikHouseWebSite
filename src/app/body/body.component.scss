@@ -10,6 +10,10 @@
     background-size: cover;
     background-attachment: fixed;
   }
+  .featurette-heading, .lead {
+    margin-left: 50px;
+    margin-top: 50px;
+  }
     .img h4{
     font-size: 50px;
     font-weight: 500px;
@@ -29,4 +33,7 @@
       border: 1px solid #333;
       background-color: #fff;
       color: #000;
+    }
+    h2 {
+      text-align: center;
     }

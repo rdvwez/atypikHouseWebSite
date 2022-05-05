@@ -9,18 +9,20 @@ import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-<<<<<<< HEAD
 import { HebergementsComponent } from './hebergements/hebergements.component';
 import { DestinationsComponent } from './destinations/destinations.component';
 import { RegisterComponent } from './register/register.component';
-=======
 import { SearchbarComponent } from './body/searchbar/searchbar.component';
 import { LocationListComponent } from './body/location-list/location-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
->>>>>>> e7aa3683964886f212a2b2682dc5fbd40d6c8bcf
+import { HeadhComponent } from './headh/headh.component';
+import { FooterbComponent } from './footerb/footerb.component';
+import { HeaddComponent } from './headd/headd.component';
+import { IdeesComponent } from './idees/idees.component';
+import { HeadiComponent } from './headi/headi.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +32,16 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     LoginComponent,
     HomeComponent,
-<<<<<<< HEAD
     HebergementsComponent,
     DestinationsComponent,
-    RegisterComponent
-=======
+    RegisterComponent,
     SearchbarComponent,
     LocationListComponent,
->>>>>>> e7aa3683964886f212a2b2682dc5fbd40d6c8bcf
+    HeadhComponent,
+    FooterbComponent,
+    HeaddComponent,
+    IdeesComponent,
+    HeadiComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
-                    <h3>Se connecter</h3>
+                    <h1>Se connecter</h1>
                     <div class="d-flex justify-content-end social_icon">
                         <span><i class="fab fa-facebook-square"></i></span>
                         <span><i class="fab fa-google-plus-square"></i></span>
@@ -21,22 +21,24 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form [formGroup]="loginform" (ngSubmit)="submit()">
                         <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="username" required>
-                            
+                        
+                            <label>
+                             Identifiant <input formControlName="username" type="text" name="id" autocomplete="identifiant">
+                              </label>
                         </div>
                         <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="password" required>
+                            <label>
+                                Mot de passe <input formControlName="password" type="password" name="pass" autocomplete="Mot de passe">
+                                 </label>
+            
+
                         </div>
                         <div class="row align-items-center remember">
-                            <input type="checkbox">Se rappeler
+                            <label>
+                            <input formControlName="check" type="checkbox">Se rappeler
+                        </label>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Valider" class="btn float-right login_btn">
@@ -45,7 +47,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
-                        Avez-vous un compte?<a routerLink="/register">Creer un compte</a>
+                        Avez-vous un compte? <a routerLink="/register"> Creer un compte </a>
                     </div>
                     <div class="d-flex justify-content-center">
                         <a href="#">Aviez-vous oublie votre mot de passe?</a>

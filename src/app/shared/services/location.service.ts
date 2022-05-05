@@ -14,7 +14,7 @@ export class LocationService {
       maxPerson: 3,
       room: 3,
       minPrice: 300,
-      description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
+      description: "",
       streetNumber: 3,
       street: "pablo picasso",
       additionalAdress: "",
@@ -28,13 +28,14 @@ export class LocationService {
       maxPerson: 5,
       room: 2,
       minPrice: 100,
-      description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
+      description: "",
       streetNumber: 2,
       street: "Paul verlaine",
       additionalAdress: "",
       city: "villeneuve saint georges",
       postalCode: 93100,
       country: "France",
+      image: "../../assets/images/bg9.jpg"
     },
     {
       libelle: "cabanette",
@@ -42,14 +43,14 @@ export class LocationService {
       maxPerson: 5,
       room: 2,
       minPrice: 100,
-      description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
+      description: "",
       streetNumber: 2,
       street: "Paul verlaine",
       additionalAdress: "",
       city: "villeneuve saint georges",
       postalCode: 93100,
       country: "France",
-      image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
+      image: "../../assets/images/bg8.jpg"
     },
     {
       libelle: "roulotte",
@@ -57,46 +58,43 @@ export class LocationService {
       maxPerson: 1,
       room: 1,
       minPrice: 50,
-      description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
+      description: "",
       streetNumber: 1,
       street: "bois du bray",
       additionalAdress: "",
       city: "Lieu saint",
       postalCode: 77100,
       country: "France",
-      image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
-    },
+      image: "../../assets/images/bg12.jpg"    },
     {
       libelle: "contenair",
       title: "maison G",
       maxPerson: 4,
       room: 4,
       minPrice: 50,
-      description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
+      description: "",
       streetNumber: 3,
       street: "beit sira",
       additionalAdress: "",
       city: "Montreuil",
       postalCode: 93100,
       country: "France",
-      image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
-    },
+      image: "../../assets/images/bg13.jpg"    },
     {
       libelle: "citrouille",
       title: "maison G",
       maxPerson: 4,
       room: 4,
       minPrice: 150,
-      description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
+      description: "",
       streetNumber: 3,
       street: "espace lacheau",
       additionalAdress: "",
       city: "gagny",
       postalCode: 93300,
       country: "France",
-      image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
-    },
-    {
+      image: "../../assets/images/bg11.jpg"    },
+   /* {
       libelle: "hute",
       title: "maison O",
       maxPerson: 3,
@@ -110,7 +108,7 @@ export class LocationService {
       postalCode: 93300,
       country: "France",
       image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
-    },
+    },*/
 
   ]);
 
@@ -120,24 +118,24 @@ export class LocationService {
 
   // get searsh location
   public getSearchLocation(data:LocationSearchForm){
-  //  console.log(data)
-  //  return of([ {
-  //   libelle: "hute",
-  //   title: "maison O",
-  //   maxPerson: 3,
-  //   room: 3,
-  //   minPrice: 150,
-  //   description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
-  //   streetNumber: 3,
-  //   street: "espace lacheau",
-  //   additionalAdress: "",
-  //   city: "gagny",
-  //   postalCode: 93300,
-  //   country: "France",
-  //   image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
-  // },])
+   console.log(data)
+  return of([ {
+  libelle: "hute",
+    title: "maison O",
+     maxPerson: 3,
+     room: 3,
+     minPrice: 150,
+     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
+     streetNumber: 3,
+     street: "espace lacheau",
+     additionalAdress: "",
+     city: "gagny",
+     postalCode: 93300,
+     country: "France",
+     image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
+   },])
 
-  return[]
+  //return[]
   }
 
   public getLocation(data:[]){

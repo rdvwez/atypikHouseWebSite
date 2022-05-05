@@ -3,14 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { HebergementsComponent } from './hebergements/hebergements.component';
+import { DestinationsComponent } from './destinations/destinations.component';
+import { IdeesComponent } from './idees/idees.component';
 
 const APP_ROUTES: Routes = [
   { path : '', component : HomeComponent },
   { path : 'login', component : LoginComponent },
-<<<<<<< HEAD
-  { path : 'register', component : RegisterComponent }
-=======
+  { path : 'register', component : RegisterComponent },
   { path : 'locations', component : LoginComponent },
+  { path : 'hebergements', component : HebergementsComponent },
+  { path : 'destinations', component : DestinationsComponent },
+  { path : 'idees', component : IdeesComponent }
   // { path : 'register', component : RegisterComponent },
   // { path : 'destnation', component : DestinationComponent },
   // { path : 'hebergement', component : HebergementComponent },
@@ -25,7 +29,6 @@ const APP_ROUTES: Routes = [
   // },
   // { path : '**', component : NotFoundComponent },
   // { path : '**', redirectTo : '' },
->>>>>>> e7aa3683964886f212a2b2682dc5fbd40d6c8bcf
 ];
 
 @NgModule({
