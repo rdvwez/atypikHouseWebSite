@@ -1,0 +1,101 @@
+
+    
+
+    <div class="content-fluid h-100">
+        <div class="col-sm-12 h-100" style="min-height:100%;">
+    
+            <div class="row">
+                <div class="col-sm-6" style="background:white; ">
+                    <span style="font-size:20px; padding:10px; font-weight: 900; display:block;">Navbar</span> 
+                </div>
+                <div class="col-sm-6" style="background:white; ">
+                    <button style="float:right; font-size: 20px; padding:5px; margin:5px;"><i class="fas fa-power-off"></i> </button>
+                </div>
+            </div>
+    
+            <div class="row justify-content-center h-100" >
+            
+                <div class="col-sm-2" style="padding-left: 0px; padding-right: 0px; background:#2c3e50;">
+                    <h1 style="color:white; font-size: 20px; text-align: center; padding:10px;">Super-Admin</h1>
+                
+                    <ul class="list-dashboard">
+                        <li> <a [routerLink]="['/dashboard-admin/societe']">Societe</a></li>
+                    </ul>
+                </div>
+            
+                <div class="col-sm-10" style="padding-top:20px; background-color: rgb(150, 150, 150);">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Customer</th>
+                                <th scope="col">Loacation</th>
+                                <th scope="col">Date of reservations</th>
+                                <th scope="col">booking Start Date</th>
+                                <th scope="col">booking End Date</th>
+                               
+                            </tr>
+                            <tr v-for="(client,index) in clients" :key="index">
+                                <th scope="row"></th>
+                                <td>valentin </td>
+                                <td>Paris</td>
+                                <td>1/03/2022</td>
+                                <td> 10/03/2022</td>
+                                <td> 15/03/2022</td>
+                               
+                            </tr>
+                            <tr v-for="(client,index) in clients" :key="index">
+                                <th scope="row"></th>
+                                <td>David </td>
+                                <td>Italie</td>
+                                <td>14/03/2022</td>
+                                <td> 18/03/2022</td>
+                                <td> 25/03/2022</td>
+                               
+                            </tr>
+                            <tr v-for="(client,index) in clients" :key="index">
+                                <th scope="row"></th>
+                                <td>Desir </td>
+                                <td>Inde</td>
+                                <td>25/04/2022</td>
+                                <td> 30/04/2022</td>
+                                <td> 01/05/2022</td>
+                               
+                            </tr>
+                            <tr v-for="(client,index) in clients" :key="index">
+                                <th scope="row"></th>
+                                <td>Gloria </td>
+                                <td>Inde</td>
+                                <td>01/05/2022</td>
+                                <td> 03/05/2022</td>
+                                <td> 30/05/2022</td>
+                               
+                            </tr>
+                            <tr v-for="(client,index) in clients" :key="index">
+                                <th scope="row"></th>
+                                <td>Nell </td>
+                                <td>Italies</td>
+                                <td>01/05/2022</td>
+                                <td> 03/05/2022</td>
+                                <td> 30/05/2022</td>
+                               
+                            </tr>
+                            <tr v-for="(client,index) in clients" :key="index">
+                                <th scope="row"></th>
+                                <td>Cabrel </td>
+                                <td>Paris</td>
+                                <td>02/05/2022</td>
+                                <td> 03/05/2022</td>
+                                <td> 30/05/2022</td>
+                               
+                            </tr>
+                        </thead>
+                       
+                    </table>
+                </div>
+    
+            </div>
+    
+        </div>
+    </div>
+    
