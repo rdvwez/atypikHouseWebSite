@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { first, mapTo, Observable, of, switchMap } from 'rxjs/';
+import { CanActivate } from '@angular/router';
+import { first, map, Observable, of, switchMap } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 import { AuthService } from '../services/auth.service';
 
@@ -18,7 +18,7 @@ export class DataUserGuard implements CanActivate {
       first(),
       switchMap((user:User | null): Observable<true> => {
         if(!user) {
-          return this.authService.fetchCurentUser().pipe(mapTo(true))
+          return this.authService.fetchCurentUser().pipe(map(() =>true))
         }else{
           return of(true);
         }

@@ -8,8 +8,8 @@ import { DataUserGuard } from './shared/guards/data-user.guard';
 
 const APP_ROUTES: Routes = [
   { path : '', component : HomeComponent },
-  { path : 'login',component : LoginComponent },
-  // { path : 'login',canActivate:[DataUserGuard], component : LoginComponent },
+  // { path : 'login',component : LoginComponent },
+  { path : 'login',canActivate:[DataUserGuard], component : LoginComponent },
   { path : 'register', component : RegisterComponent },
   { path : 'locations', component : LoginComponent },
   { path : 'profil', component : LoginComponent },
@@ -31,7 +31,9 @@ const APP_ROUTES: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(APP_ROUTES)],
+  imports: [RouterModule.forRoot(APP_ROUTES, {
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
