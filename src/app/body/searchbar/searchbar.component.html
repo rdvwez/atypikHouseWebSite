@@ -3,8 +3,6 @@
     <div class="row p-5" >
         <div class="col-12">
             
-
-            
        
             <form [formGroup]="searchBarForm"  (ngSubmit)="submit()">
                 
@@ -18,6 +16,13 @@
                                     <option value="paris">Paris</option>
                                     <option value="nantes">Nantes</option>
                                     <option value="tours">Tours</option>
+                                    <option value="tours">Lyon</option>
+                                    <option value="tours">Annecy</option>
+                                    <option value="tours">Cannes</option>
+                                    <option value="tours">Troyes</option>
+                                    <option value="tours">Eze</option>
+                                    <option value="tours">Bordeaux</option>
+                                    <option value="tours">Giverny</option>
                                 </select>
                               <!--  <span  *ngIf="searchBarForm.get('city')?.errors?.['required']"> Veillez choisir une ville</span> -->
                             </div>
@@ -25,9 +30,21 @@
                                 <label for="inputCategory">Category</label>
                                 <select formControlName="category" class="custom-select form-control-sm form-control form-select" id="inputCategory">
                                     <option selected></option>
-                                    <option value="hutte">hutte</option>
-                                    <option value="bulle">bulle</option>
-                                    <option value="cabane">cabane</option>
+                                    <option value="hutte">Cabane dans les arbres</option>
+                                    <option value="bulle">Cabane</option>
+                                    <option value="cabane">Cabane sur pilotis</option>
+                                    <option value="cabane">Chalet</option>
+                                    <option value="cabane">Lov Nid</option>
+                                    <option value="cabane">Roulotte</option>
+                                    <option value="cabane">Dôme</option>
+                                    <option value="cabane">Maison troglodyte</option>
+                                    <option value="cabane">Maison de Hobbit</option>
+                                    <option value="cabane">Yourt</option>
+                                    <option value="cabane">Tiny House</option>
+                                    <option value="cabane">Cabane vegetalisée</option>
+                                    <option value="cabane">Tipi</option>
+                                    <option value="cabane">Bateu</option>
+                                    <option value="cabane">Inclasable</option>
                                 </select>
                             </div>
                         </div>
