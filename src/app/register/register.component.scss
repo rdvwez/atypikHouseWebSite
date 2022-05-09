@@ -6,9 +6,12 @@
         background-size: cover;
         background-attachment: fixed;
       }
-      h2 {
+      h1 {
         text-align: center;
         color: white;
+      }
+      .float-end a, p {
+        color: #fff;
       }
       
       .main-agileinfo {
@@ -119,5 +122,12 @@
         width: 1.2em;
         height: 1.2em;
       }
-      
+      input[type=text], input[type=password], input[type=email] {
+        width: 100%;
+        padding: 10px 20px;
+        margin: 10px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
      

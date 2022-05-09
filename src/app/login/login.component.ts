@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '../shared/services/auth.service';
 import { Meta, Title } from '@angular/platform-browser';
+import { AuthService } from '../shared/services/auth.service';
+// import { Router } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,11 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  public loginform: FormGroup;
 
   public descriptionContent = "Trouvez dans votre atypik compte les elements de gestion pour assurer le suivis de vos reservations"
   public pageTitle = "AtypikHouse : accedez à votre atypik compte"
+  
 
 
   public loginForm: FormGroup=  this.fb.group({
@@ -29,11 +32,17 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router:Router,
     private metaService: Meta, 
-    private titleService:Title
+    private titleService:Title,
     ) {
 
     this.metaService.addTag({name: 'description', content: this.descriptionContent});
     this.titleService.setTitle(this.pageTitle);
+    this.loginform = this.fb.group({
+      'username': ['', Validators.required],
+      'password': ['', Validators.required],
+      'remember': ['', Validators.required],
+
+    })
     }
 
   ngOnInit(): void {}

@@ -3,6 +3,8 @@
     <div class="row p-5" >
         <div class="col-12">
             
+
+            
        
             <form [formGroup]="searchBarForm"  (ngSubmit)="submit()">
                 
@@ -13,9 +15,9 @@
                                 <label for="inputDestination">Destination</label>
                                 <select formControlName="city" class="custom-select form-control-sm form-control form-select" id="inputDestination">
                                     <option selected></option>
-                                     <option value="paris">Paris</option>
+                                    <option value="paris">Paris</option>
                                     <option value="nantes">Nantes</option>
-                                    <option value="tours">Tourse</option>
+                                    <option value="tours">Tours</option>
                                 </select>
                               <!--  <span  *ngIf="searchBarForm.get('city')?.errors?.['required']"> Veillez choisir une ville</span> -->
                             </div>

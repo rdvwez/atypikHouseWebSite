@@ -22,6 +22,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AccountComponent } from './account/account.component';
 import { TransferHttpCacheModule } from '@nguniversal/common'
 
+import { HeadhComponent } from './headh/headh.component';
+import { FooterbComponent } from './footerb/footerb.component';
+import { HeaddComponent } from './headd/headd.component';
+import { IdeesComponent } from './idees/idees.component';
+import { HeadiComponent } from './headi/headi.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,14 @@ import { TransferHttpCacheModule } from '@nguniversal/common'
     LocationListComponent,
     RegisterComponent,
     AccountComponent,
+    RegisterComponent,
+    SearchbarComponent,
+    LocationListComponent,
+    HeadhComponent,
+    FooterbComponent,
+    HeaddComponent,
+    IdeesComponent,
+    HeadiComponent,
   ],
   imports: [
     BrowserModule,
