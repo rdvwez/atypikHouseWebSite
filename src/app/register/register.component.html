@@ -1,0 +1,38 @@
+<div class="contain">
+<div class="main-w3layouts wrapper">
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <h1>Creer un compte</h1>
+            <form [formGroup]="registerform" (ngSubmit)="submit()">
+                <label>
+                Email <input formControlName="email" class="text email" type="email" name="email" autocomplete="Email">
+            </label>
+            <label>
+                Prenom <input formControlName="prenom" class="text" type="text" name="prenom" autocomplete="Prenom"> <br/>
+            </label>
+            <label>
+                Nom <input formControlName="nom" class="text" type="text" name="nom" autocomplete="Nom"> <br/>
+            </label>
+            <label>
+                Mot de passe<input formControlName="password" class="text" type="password" name="password" autocomplete="Mot de passe"> <br/>
+            </label>
+                <div class="wthree-text">
+                    <label class="anim">
+                        <input formControlName="check" type="checkbox" class="checkbox" required=""> 
+                        <span>Rester connecter</span>
+                    </label> <br/>
+                    <label class="anime">
+                        <input formControlName="checkb" type="checkbox" class="checkbox">
+                        <span>Je souhaite recevoir des idees de vacances, des offres speciales 
+                            et autres par email de la part d'Atypik House. Vous pouvez vous desabonnez des emails
+                        promotionnels a tout moment </span>
+                    </label>
+                    <div class="clear"> </div>
+                </div>
+                <input type="submit" value="CONTINUER">
+            </form>
+            <p>Vous avez deja un compte? <a routerLink="/login"> Se connecter</a></p>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,20 @@
+.cont {
+  background-color: rgba(206, 193, 193, 0.178);
+  }
+  .img{
+    height: 40vh;
+    width: 100%;
+    background-image: url('../../assets/images/bg2.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+    .img h1{
+    font-size: 50px;
+    font-weight: 500px;
+    text-align: center;
+    color: white;
+    margin-top: 0px;
+    padding-top: 20px;
+    }

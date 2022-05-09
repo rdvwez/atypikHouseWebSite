@@ -1,0 +1,31 @@
+
+<div class="container px-4 py-5" id="custom-cards" *ngIf="houses">
+   
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 ">
+     
+
+      <div class="col" *ngFor="let location of houses; let index=index">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('{{ location.image  }} ');">
+            
+          <div class="d-flex flex-column h-100 p-5 pb-3 textcolor">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ location.libelle  }}</h2>
+            <ul class="d-flex list-unstyled mt-auto backgroundDecoration">
+              <li class="me-auto">
+                <img [src]="location.image" alt="Bootstrap" width="52" height="52" class="rounded-circle border border-white">
+              </li>
+              <li class="d-flex align-items-center me-3 ">
+                <small> {{ location.city  }}  </small>
+              </li>
+              <li class="d-flex align-items-center m-2">
+                
+                <small> {{ location.minPrice  }}  € </small>
+              
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
