@@ -12,6 +12,6 @@ export interface House {
     city: string;
     postalCode: number;
     country: string;
-    image ?: string
+    image : string
 
 }

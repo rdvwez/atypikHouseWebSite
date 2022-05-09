@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { House } from '../interfaces/location.interface';
 import { LocationSearchForm } from '../interfaces/location.searsh.form.interface';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationService {
-  public house$: BehaviorSubject<House[]> = new BehaviorSubject([ 
+  public houseListe$: BehaviorSubject<House[]> = new BehaviorSubject( [ 
     {
       libelle: 'aliotp',
       title: "andre moro",
@@ -21,6 +22,25 @@ export class LocationService {
       city: "corbil esson",
       postalCode: 91100,
       country: "France",
+      image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
+    }
+  ]);
+  public house$: BehaviorSubject<House[]> = new BehaviorSubject(
+    [ 
+    {
+      libelle: 'aliotp',
+      title: "andre moro",
+      maxPerson: 3,
+      room: 3,
+      minPrice: 300,
+      description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
+      streetNumber: 3,
+      street: "pablo picasso",
+      additionalAdress: "",
+      city: "corbil esson",
+      postalCode: 91100,
+      country: "France",
+      image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
     },
     {
       libelle: "ndako",
@@ -35,7 +55,7 @@ export class LocationService {
       city: "villeneuve saint georges",
       postalCode: 93100,
       country: "France",
-      image: "../../assets/images/bg9.jpg"
+      image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
     },
     {
       libelle: "cabanette",
@@ -110,7 +130,10 @@ export class LocationService {
       image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
     },*/
 
-  ]);
+  ]
+  );
+
+  constructor(private httpClient: HttpClient) {}
 
   // public slelctedLocation$: BehaviorSubject<Location> = new BehaviorSubject(
   //   // this.locations$.value[0]
@@ -118,31 +141,66 @@ export class LocationService {
 
   // get searsh location
   public getSearchLocation(data:LocationSearchForm){
-   console.log(data)
-  return of([ {
-  libelle: "hute",
+  //  console.log(data)
+   return of([ {
+    libelle: "hute",
     title: "maison O",
-     maxPerson: 3,
-     room: 3,
-     minPrice: 150,
-     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
-     streetNumber: 3,
-     street: "espace lacheau",
-     additionalAdress: "",
-     city: "gagny",
-     postalCode: 93300,
-     country: "France",
-     image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
-   },])
+    maxPerson: 3,
+    room: 3,
+    minPrice: 150,
+    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil consectetur distinctio laudantium nesciunt fugiat molestiae libero aliquam voluptatibus eveniet hic, nam ratione laborum quia soluta culpa repudiandae, fugit tempora nemo?",
+    streetNumber: 3,
+    street: "espace lacheau",
+    additionalAdress: "",
+    city: "gagny",
+    postalCode: 93300,
+    country: "France",
+    image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
+  },])
 
-  //return[]
+  // return[]
   }
+
+  public getLocations(): Observable<House[]>{
+    return this.httpClient.get<House[]>('GET_LOCATION_URL')
+    .pipe(
+      tap((houses:House[]) =>{
+          this.houseListe$.next(houses);
+        }
+        )
+    );  
+  }
+
+  public addLocavation(house:House):Observable<House>{
+    return this.httpClient.post<House>('ADD_LOCATION_URL',house).pipe(
+      tap((savedhouse: House)=> {
+        const value = this.houseListe$.value;
+        this.house$.next([...value, savedhouse]);
+      })
+    )
+  }
+
+  public editLocation(locationId:String, editedHouse: House): Observable<House>{
+    return this.httpClient.patch<House>('PATCH_LOCATION_URL${locationId}',editedHouse)
+    .pipe(
+      tap( (savedHouse: House)=>{
+            const value = this.houseListe$.value;
+            this.houseListe$.next(
+              value.map((house: House) => {
+                if (house.title === savedHouse.title){ return savedHouse;}
+                else{ return house;}
+              })
+            );
+        })
+    );
+  }
+
+  
+  
 
   public getLocation(data:[]){
-  //  console.log(data)
-  //  return 
-  }
-  constructor() { 
-    
-  }
+    //  console.log(data)
+    //  return 
+    }
+
 }

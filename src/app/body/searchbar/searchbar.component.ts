@@ -47,7 +47,7 @@ export class SearchbarComponent implements OnInit {
     // console.log(this.searchBarForm.value)
     // console.log(this.searchBarForm.value.arrivalDate.day)
     // console.log(this.fromDate)
-    // this.searshService.getSearchLocation(this.fromDate)
+    // this.searshService.getSearchLocation(this.fromDate) 
     
     this.searchBarForm.patchValue({
       'departureDate' : this.formatDate(this.toDate),

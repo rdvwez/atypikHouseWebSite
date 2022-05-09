@@ -26,14 +26,19 @@ export class BodyComponent implements OnInit,OnDestroy {
       this.houses = locations;
     }));
     // this.selectedLocation = this.locations[0]
+    
   }
 
   public getLocationSearchFormData(event: LocationSearchForm){
     // console.log(event)
-    this.locationService.getSearchLocation(event).subscribe((locations:House[]) => {
-      this.houses = locations;
+    this.locationService.getSearchLocation(event).subscribe((houses:House[]) => {
+      this.houses = houses;
     })
     // console.log(event)
+    // this.subscription.add(this.locationService.house$.subscribe(
+    //   (locations:House[]) => {
+    //   this.houses = locations;
+    // }));
   }
 
   ngOnDestroy(): void {
