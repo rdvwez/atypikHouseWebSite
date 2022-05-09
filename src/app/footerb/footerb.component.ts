@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-footerb',
@@ -7,7 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterbComponent implements OnInit {
 
-  constructor() { }
+  public contactForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { 
+
+    this.contactForm = this.fb.group({
+      'nom': ['', Validators.required],
+      'eamil': ['', Validators.required],
+      'message': ['', Validators.required]
+    })
+
+  }
+
+  public  submit() : void{
+    
+  }
 
   ngOnInit(): void {
   }

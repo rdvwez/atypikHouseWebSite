@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-idees',
@@ -7,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdeesComponent implements OnInit {
 
-  constructor() { }
+  public ideaForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { 
+    this.ideaForm = this.fb.group({
+      'nom': ['', Validators.required],
+      'eamil': ['', Validators.required],
+      'message': ['', Validators.required]
+    })
+
+  }
+
+  public  submit() : void{
+    
+  }
 
   ngOnInit(): void {
   }
