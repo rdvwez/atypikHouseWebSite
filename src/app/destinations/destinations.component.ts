@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-destinations',
@@ -7,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DestinationsComponent implements OnInit {
 
-  constructor() { }
+  public descriptionContent = "Touvez sur cette page des destinations de rèves pour vous et votre famille dans nos atypic house à travers l'europe"
+  public pageTitle = "AtypikHouse : Des destinations de rêves"
 
+  constructor(private metaService: Meta, private titleService:Title) {
+    this.metaService.addTag({name: 'description', content: this.descriptionContent});
+    this.titleService.setTitle(this.pageTitle);
+
+   }
+  
   ngOnInit(): void {
   }
 

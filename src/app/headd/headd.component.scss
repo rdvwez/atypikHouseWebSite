@@ -1,8 +1,8 @@
 .cont {
-    background-color: beige;
+  background-color: rgba(206, 193, 193, 0.178);
   }
   .img{
-    height: 70vh;
+    height: 40vh;
     width: 100%;
     background-image: url('../../assets/images/bg2.jpg');
     background-position: center center;
@@ -10,7 +10,7 @@
     background-size: cover;
     background-attachment: fixed;
   }
-    .img h4{
+    .img h1{
     font-size: 50px;
     font-weight: 500px;
     text-align: center;
