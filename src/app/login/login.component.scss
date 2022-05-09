@@ -18,6 +18,8 @@
     width: 400px;
     background-color: rgba(0,0,0,0.5) !important;
     }
+
+    // .backgroundColor[]
     
     .social_icon span{
     font-size: 60px;
@@ -30,8 +32,13 @@
     cursor: pointer;
     }
     
-    .card-header h3{
+    .card-header h2{
+      font-size: large;
     color: white;
+    }
+    h1{
+      color: #fff;
+      text-align: center ;
     }
     
     .social_icon{

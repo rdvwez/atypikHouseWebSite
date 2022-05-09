@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { isPlatformServer } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { Component , Inject, PLATFORM_ID} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'atypikHouseProject';
+
+  constructor() {
+
+   
+  
+  }
 }

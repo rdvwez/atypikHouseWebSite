@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http'
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AccountComponent } from './account/account.component';
+import { TransferHttpCacheModule } from '@nguniversal/common'
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { AccountComponent } from './account/account.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    TransferHttpCacheModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
