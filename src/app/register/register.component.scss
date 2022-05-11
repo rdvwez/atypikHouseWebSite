@@ -1,133 +1,116 @@
+.contain {
+  background-image: url('../../assets/images/bg8.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-attachment: fixed;
+}
 
-      .contain {
-        background-image: url('../../assets/images/bg1.jpg');
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-      }
-      h1 {
-        text-align: center;
-        color: white;
-      }
-      .float-end a, p {
-        color: #fff;
-      }
-      
-      .main-agileinfo {
-        width: 35%;
-        margin: 0em auto;
-        background-color: rgba(0,0,0,0.5) !important;
-        background-size: cover;
-      }
-      
-      .agileits-top {
-        padding: 3em;
-      }
-      
-      input[type="text"], input[type="email"], input[type="password"] {
-        font-size: 0.9em;
-        color:black;
-        font-weight: 100;
-        width: 75%;
-        display: block;
-        border: none;
-        padding: 1.3em;
-        border: solid 1px rgba(255, 255, 255, 0.37);
-        -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-        transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%);
-        background-position: -800px 0;
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-color: #fff;
-        color: black;
-        font-family: 'Roboto', sans-serif;
-        border-radius: 7px;
-        border-color: gray;
-      }
-      
-      input.email, input.text.w3lpass {
-        margin: 2em 0;
-      }
-      
-      .text:focus, .text:valid {
-        box-shadow: none;
-        outline: none;
-        background-position: 0 0;
-      }
-      
-      .text:focus::-webkit-input-placeholder, .text:valid::-webkit-input-placeholder {
-        color: rgba(15, 15, 15, 0.7);
-        font-size: .9em;
-        -webkit-transform: translateY(-30px);
-        -moz-transform: translateY(-30px);
-        -o-transform: translateY(-30px);
-        -ms-transform: translateY(-30px);
-        transform: translateY(-30px);
-        visibility: visible !important;
-      }
-      
-      ::-webkit-input-placeholder {
-        color: black;
-        font-weight: 100;
-      }
-      
-      input[type="submit"] {
-        font-size: .9em;
-        color: black;
-        background: white;
-        outline: none;
-        border: 1px solid white;
-        cursor: pointer;
-        padding: 0.9em;
-        -webkit-appearance: none;
-        width: 100%;
-        margin: 2em 0;
-        letter-spacing: 4px;
-        border-radius: 50px;
-      }
-      
-      .agileits-top p {
-        font-size: 1em;
-        color: white;
-        text-align: center;
-        letter-spacing: 1px;
-        font-weight: 300;
-      }
-      
-      .agileits-top p a {
-        color: 3B5998;
-        -webkit-transition: .5s all;
-        -moz-transition: .5s all;
-        transition: .5s all;
-        font-weight: 400;
-      }
+.container{
+  height: 905px;
+  align-content: center;
+  }
+  
+  .card{
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+  }
 
-      label {
-        color: #fff;
-      }
-      
-      /*-- checkbox --*/
-      .wthree-text label {
-        font-size: 0.9em;
-        font-weight: 200;
-        cursor: pointer;
-        position: relative;
-      }
-      
-      input.checkbox {
-        cursor: pointer;
-        width: 1.2em;
-        height: 1.2em;
-      }
-      input[type=text], input[type=password], input[type=email] {
-        width: 100%;
-        padding: 10px 20px;
-        margin: 10px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-      }
-     
+  // .backgroundColor[]
+  
+  .social_icon span{
+  font-size: 60px;
+  margin-left: 10px;
+  color: white;
+  }
+  
+  .social_icon span:hover{
+  color: #3B5998;
+  cursor: pointer;
+  }
+  
+  .card-header h2{
+    font-size: large;
+  color: white;
+  margin-top: 30px;
+  }
+  h1{
+    color: #fff;
+    text-align: center ;
+  }
+  
+  .social_icon{
+  position: absolute;
+  right: 20px;
+  top: -45px;
+  }
+  
+  /*.input-group-prepend span{
+  width: 50px;
+  background-color: #333;
+  color: black;
+  border:0 !important;
+  overflow:hidden;
+  }*/
+  
+// label {
+//   // color: white;
+// }
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+  
+  input:focus{
+  outline: 0 0 0 0  !important;
+  box-shadow: 0 0 0 0 !important;
+  
+  }
+  
+  .remember{
+  color: white;
+  }
+  
+  .remember input
+  {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+  }
+  
+  .login_btn{
+  color: black;
+  background-color: white;
+  width: 100px;
+  margin-top: -20px;
+  }
+  
+  .login_btn:hover{
+  color: black;
+  background-color: #333;
+  }
+  
+  .links{
+  color: white;
+  margin-top: -30px;
+  }
+  
+  .links a{
+  margin-left: 4px;
+  }
+
+  .error{
+    color: red;
+  }
+
+  .withTextColor{
+    color: #fff;
+  }
