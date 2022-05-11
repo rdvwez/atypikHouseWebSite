@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LocationService {
-  public houseListe$: BehaviorSubject<House[]> = new BehaviorSubject( [ 
+  public houseListe$: BehaviorSubject<House[]> = new BehaviorSubject([ 
     {
       libelle: 'aliotp',
       title: "andre moro",

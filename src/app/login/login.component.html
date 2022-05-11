@@ -8,68 +8,61 @@
         
       
       
-    <div class="contain">
+<div class="contain">
+    <button class="btn btn-secondary btn-sm p-2" routerLink="/" style="float: right;">Returner à l'acceuil</button>
+        <div class="d-flex justify-content-center h-100" > 
+            <img  src="assets/logo/logo3.png" routerLink="/" alt="logo atypikHouse" style="float: left;" width="50">
+            <h1 >Accedez à votre atypik compte</h1>
+            
+       
+    </div> 
+<div class="container ">
     
-    <div class="container">
-        <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6">
-                <div class="d-flex justify-content-end  ">
-                    <!-- <img src="assets/logo/logo3.png" alt="logo atypikHouse" style="float: left;" width="100"> -->
-                    <h1>Accedez à votre compte utilisateur atypik</h1>
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            
+            <div class="card-header">
+                <h2>Accedez à votre atypik compte</h2>
+ 
+                
+                <div class="d-flex justify-content-end social_icon">
+                    <span><i class="fab fa-facebook-square"></i></span>
+                    <span><i class="fab fa-twitter-square"></i></span>
+                </div>
+            </div>
+            <div class="card-body">
+            <span *ngIf="error" class="error"> {{error}}</span>
+            
+               <form [formGroup]="loginForm"  (ngSubmit)="submit()">
+                    <div class="form-floating m-3">
+                        <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email </label>
+                    </div>
+                    <div class="form-floating m-3" >
+                        <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Mot de passe</label>
+                    </div>
+
+                    <div class="checkbox mb-3 withTextColor">
+                    <label>
+                        <input formControlName="remember" type="checkbox" value="remember-me"> se soiuvenir de moi
+                    </label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Se connecter</button>
+                    <p class="mt-5 mb-3 text-muted">&copy; atypikHouse 2022</p>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links" >
+                   N'avez vous pas de compte?<a routerLink="/register">Creer un compte</a>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="#">Aviez-vous oublie votre mot de passe?</a>
                 </div>
                
             </div>
-            <div class="col-3"></div>
-        </div>
-       
-        <div class="d-flex justify-content-center h-100">
-        
-           
-            <div class="card">
-            
-                <div class="card-header">
-                    <h2>Se connecter</h2>
-                    
-                    <div class="d-flex justify-content-end social_icon">
-                        <span><i class="fab fa-facebook-square"></i></span>
-                        <span><i class="fab fa-google-plus-square"></i></span>
-                        <span><i class="fab fa-twitter-square"></i></span>
-                    </div>
-                </div>
-                <div class="card-body">
-                <span *ngIf="error" class="error"> {{error}}</span>
-                   <form [formGroup]="loginForm"  (ngSubmit)="submit()">
-                        
-
-                        <div class="form-floating m-3">
-                            <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email </label>
-                        </div>
-                        <div class="form-floating m-3" >
-                            <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Mot de passe</label>
-                        </div>
-
-                        <div class="checkbox mb-3 withTextColor">
-                        <label>
-                            <input type="checkbox" value="remember-me"> se soiuvenir de moi
-                        </label>
-                        </div>
-                        <button class="w-100 btn btn-lg btn-primary" type="submit">Se connecter</button>
-                        <p class="mt-5 mb-3 text-muted">&copy; atypikHouse 2022</p>
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-content-center links" >
-                       N'avez vous pas de compte?<a routerLink="/register">Creer un compte</a>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <a href="#">Aviez-vous oublie votre mot de passe?</a>
-                    </div>
-                   
-                </div>
-            </div>
         </div>
     </div>
+
+</div>
 </div>
