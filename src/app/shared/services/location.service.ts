@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class LocationService {
   public houseListe$: BehaviorSubject<House[]> = new BehaviorSubject([ 
     {
-      libelle: 'aliotp',
+      libelle: 'bulle',
       title: "andre moro",
       maxPerson: 3,
       room: 3,
@@ -28,7 +28,7 @@ export class LocationService {
   public house$: BehaviorSubject<House[]> = new BehaviorSubject(
     [ 
     {
-      libelle: 'aliotp',
+      libelle: 'bulle',
       title: "andre moro",
       maxPerson: 3,
       room: 3,
@@ -43,7 +43,7 @@ export class LocationService {
       image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
     },
     {
-      libelle: "ndako",
+      libelle: "cabane",
       title: "maison congolaise",
       maxPerson: 5,
       room: 2,
@@ -52,13 +52,13 @@ export class LocationService {
       streetNumber: 2,
       street: "Paul verlaine",
       additionalAdress: "",
-      city: "villeneuve saint georges",
+      city: "annecy",
       postalCode: 93100,
       country: "France",
       image: "https://www.chaletdejardin.fr/media/cache/sylius_shop_product_hero_webp/f/9/4/4/f9446b318d99877d5994cfbfdf06da1ebdfeee8d_AV355_breta_18_img01.jpg"
     },
     {
-      libelle: "cabanette",
+      libelle: "roulotte",
       title: "maison C",
       maxPerson: 5,
       room: 2,
@@ -67,7 +67,7 @@ export class LocationService {
       streetNumber: 2,
       street: "Paul verlaine",
       additionalAdress: "",
-      city: "villeneuve saint georges",
+      city: "Lyon",
       postalCode: 93100,
       country: "France",
       image: "../../assets/images/bg8.jpg"
@@ -101,7 +101,7 @@ export class LocationService {
       country: "France",
       image: "../../assets/images/bg13.jpg"    },
     {
-      libelle: "citrouille",
+      libelle: "hute",
       title: "maison G",
       maxPerson: 4,
       room: 4,
