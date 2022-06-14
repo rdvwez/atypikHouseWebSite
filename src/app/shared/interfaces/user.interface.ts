@@ -1,11 +1,15 @@
 export interface User {
-    _id:string;
+    _id?:string;
+    email:string;
+    role?: string;
+    password?: string;
+    reopetedPassword?: string;
     name:string;
     firstname:string;
-    email:string;
-    password: string;
-    role: string;
-    dateNaiss: string;
-    state: boolean;
-    img?: string
+    birthDate?: string;
+    gender?: string;
+    phoneNumber?: string;
+    img?: string;
+    stayConnecteed?: boolean;
+    stayInformed?: boolean;
 }

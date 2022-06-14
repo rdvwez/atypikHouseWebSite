@@ -19,7 +19,7 @@ const APP_ROUTES: Routes = [
   { path : 'hebergements', component : HebergementsComponent },
   { path : 'destinations', component : DestinationsComponent },
   { path : 'idees', component : IdeesComponent },
-  { path : 'profil', component : LoginComponent },
+  { path : 'profil',canActivate:[DataUserGuard], component : LoginComponent },
   { path : 'account', component : AccountComponent },
   // { path : 'register', component : RegisterComponent },
   // { path : 'destnation', component : DestinationComponent },

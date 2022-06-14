@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  name: 'default',
+  version: 'v1.0',
+  backendServer: 'http://127.0.0.1:36861/api'
 };
 
 /*

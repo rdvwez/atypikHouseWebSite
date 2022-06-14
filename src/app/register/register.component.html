@@ -21,38 +21,53 @@
             
         </div>
         <div class="card-body">
-        <!-- <span *ngIf="error" class="error"> {{error}}</span> -->
+        <span *ngIf="error " class="error">{{ error }} </span>
         
         <form [formGroup]="registerform" (ngSubmit)="submit()">
 
             <div class="form-floating m-3">
-                <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email </label>
+                <input type="email" formControlName="email" class="form-control" id="email" placeholder="name@example.com">
+                <label for="email">Email </label>
+                <span *ngIf="registerform.get('email')?.errors?.['required'] ">
+                            Veuillez renseigner une adresse email.
+                </span>
             </div>
             <div class="form-floating m-3">
-                <input type="email" formControlName="prenom" class="form-control" id="prenom" placeholder="prenom">
-                <label for="prenoms">Prenom </label>
+                <input type="text" formControlName="firstname" class="form-control" id="firstname" placeholder="prenom">
+                <label for="firstname">Prenom </label>
+                <span *ngIf="registerform.get('firstname')?.errors?.['required'] ">
+                            Veuillez renseigner un prenom.
+                </span>
             </div>
             <div class="form-floating m-3">
-                <input type="text" formControlName="Nom" class="form-control" id="nom" placeholder="Nom">
-                <label for="prenoms">Nom </label>
+                <input type="text" formControlName="name" class="form-control" id="name" placeholder="Nom">
+                <label for="nom">Nom </label>
+                <span *ngIf="registerform.get('name')?.errors?.['required'] ">
+                            Veuillez renseigner un nom.
+                </span>
             </div>
             <div class="form-floating m-3">
-                <input type="text" formControlName="password" class="form-control" id="password" placeholder="Mot de passe">
+                <input type="password" formControlName="password" class="form-control" id="password" placeholder="Mot de passe">
                 <label for="password">Mot de passe </label>
+                <span *ngIf="registerform.get('password')?.errors?.['required'] ">
+                            Veuillez renseigner un mot de passe.
+                </span>
             </div>
             <div class="form-floating m-3">
-                <input type="text" formControlName="passwordRepeted" class="form-control" id="password" placeholder="confirmer mot de passe">
-                <label for="password">Confirmer mot de passe</label>
+                <input type="password" formControlName="repetedPassword" class="form-control" id="repetedPassword" placeholder="confirmer mot de passe">
+                <label for="repetedPassword">Confirmer mot de passe</label>
+                <span *ngIf="registerform.get('repetedPassword')?.errors?.['required'] ">
+                            Veuillez repeter le mot de passe.
+                </span>
             </div>
         
             <div class="wthree-text " style="color: #fff;">
                 <label class="anim m-1">
-                    <input formControlName="check" type="checkbox" class="checkbox" required=""> 
+                    <input formControlName="stayConnecteed" type="checkbox" class="checkbox" required=""> 
                     <span>  Rester connecter</span>
                 </label> <br/>
                 <label class="anime m-1">
-                    <input formControlName="checkb" type="checkbox" class="checkbox">
+                    <input formControlName="stayInformed" type="checkbox" class="checkbox">
                     <span>  Je souhaite recevoir des idees de vacances, des offres speciales 
                         et autres par email de la part d'Atypik House. Vous pouvez vous desabonnez des emails
                     promotionnels a tout moment </span>
