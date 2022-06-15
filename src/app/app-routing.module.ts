@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { DataUserGuard } from './shared/guards/data-user.guard';
 import { HebergementsComponent } from './hebergements/hebergements.component';
 import { IdeesComponent } from './idees/idees.component';
+import {AdminGuard} from "./shared/guards/admin.guard";
 
 
 const APP_ROUTES: Routes = [
@@ -20,7 +21,7 @@ const APP_ROUTES: Routes = [
   { path : 'destinations', component : DestinationsComponent },
   { path : 'idees', component : IdeesComponent },
   { path : 'profil',canActivate:[DataUserGuard], component : LoginComponent },
-  { path : 'account', component : AccountComponent },
+  { path : 'account', component : AccountComponent, canActivate: [AdminGuard] },
   // { path : 'register', component : RegisterComponent },
   // { path : 'destnation', component : DestinationComponent },
   // { path : 'hebergement', component : HebergementComponent },
