@@ -5,9 +5,11 @@ import { DestinationsComponent } from './destinations/destinations.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { DataUserGuard } from './shared/guards/data-user.guard';
+// import { DataUserGuard } from './shared/guards/data-user.guard';
 import { HebergementsComponent } from './hebergements/hebergements.component';
 import { IdeesComponent } from './idees/idees.component';
+import {AdminGuard} from "./shared/guards/admin.guard";
+import {UserGuard} from "./shared/guards/user.guard";
 
 
 const APP_ROUTES: Routes = [
@@ -19,8 +21,8 @@ const APP_ROUTES: Routes = [
   { path : 'hebergements', component : HebergementsComponent },
   { path : 'destinations', component : DestinationsComponent },
   { path : 'idees', component : IdeesComponent },
-  { path : 'profil', component : LoginComponent },
-  { path : 'account', component : AccountComponent },
+  // { path : 'profil',canActivate:[DataUserGuard], component : LoginComponent },
+  { path : 'account', component : AccountComponent, canActivate: [UserGuard] },
   // { path : 'register', component : RegisterComponent },
   // { path : 'destnation', component : DestinationComponent },
   // { path : 'hebergement', component : HebergementComponent },
