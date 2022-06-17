@@ -16,16 +16,31 @@ export class AuthService {
   public user$:BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
   public apiUrl = environment.backendServer;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private tokenService: TokenService) { }
 
-  public fetchCurentUser(): Observable<User>{
-    return this.httpClient.get<User>(this.apiUrl.concat('/user'))
-    .pipe(
-      tap((user: User) =>{
-        this.user$.next(user);
-      })
-    )
+  public setCurentUser(): void{
+
+    let id = this.tokenService.decodeToken().id
+
+    this.getUserByid(id).subscribe((user: User) =>{
+      this.user$.next(user);
+      console.log(this.user$)
+    },error => console.log(error))
+    // .pipe(
+    //   tap((user: User) =>{
+    //     this.user$.next(user);
+    //     console.log(this.user$)
+    //   })
+    // )
   }
+
+
+  public getUserByid(id:number): Observable<User>{
+    return this.httpClient.get<User>(this.apiUrl.concat('/users/'+id))
+
+  }
+  
+
 
   public login(credentials:Credential):Observable<TokenInterface>{
     return this.httpClient.post<TokenInterface>(this.apiUrl.concat('/login_check'),credentials)
@@ -33,6 +48,7 @@ export class AuthService {
       tap((data:TokenInterface) =>{
         if(data) {
           TokenService.setToken(data.token)
+          this.setCurentUser()
         } else {
           TokenService.deleteToken();
         }

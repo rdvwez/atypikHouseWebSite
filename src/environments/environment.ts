@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   name: 'default',
   version: 'v1.0',
-  backendServer: 'http://127.0.0.1:36861/api'
+  backendServer: 'https://127.0.0.1:8000/api'
 };
 
 /*

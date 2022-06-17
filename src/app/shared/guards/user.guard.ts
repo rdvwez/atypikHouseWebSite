@@ -6,14 +6,14 @@ import {UserService} from "../services/user.service";
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivate {
+export class UserGuard implements CanActivate {
 
   constructor(private userService: UserService,
               private router: Router){
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if(this.userService.isAdmin()) {
+    if(this.userService.isUser()) {
       return true;
     }
     this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});

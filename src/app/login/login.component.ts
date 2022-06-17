@@ -56,8 +56,8 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.loginForm.getRawValue()).subscribe(
         {
           next: () => { 
-            console.log(this.authService.user$.value)
-            // this.router.navigateByUrl('/account'); 
+            // console.log(this.authService.user$.value)
+            this.router.navigateByUrl('/account'); 
           },
           error: (err) => { this.error = err?.error.message || "Login ou Mot de passe incorrect";
           // console.log(err)

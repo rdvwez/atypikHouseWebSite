@@ -10,6 +10,7 @@ import {TokenService} from "./token.service";
 })
 export class UserService {
   ADMIN_ROLE = "ROLE_ADMIN";
+  USER_ROLE = "ROLE_USER";
 
   constructor(private tokenService: TokenService) {}
 
@@ -84,6 +85,10 @@ export class UserService {
 
   isAdmin(): boolean {
     return this.isLogged() && this.tokenService.decodeToken().roles.find((role: string) => role === this.ADMIN_ROLE);
+  }
+
+  isUser(): boolean {
+    return this.isLogged() && this.tokenService.decodeToken().roles.find((role: string) => role === this.USER_ROLE);
   }
 
 }
