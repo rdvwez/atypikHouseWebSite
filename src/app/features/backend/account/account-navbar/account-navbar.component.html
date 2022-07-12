@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top " aria-label="Twelfth navbar example">
+   
+      <div class="container-fluid">
+         <a class="navbar-brand " routerLink="/">
+          <img class ="ms-6 handeling-logo" src="assets/logo/logo2.png" width="60" height="60" class="d-inline-block align-top" alt="atypikHouse logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class=" collapse navbar-collapse justify-content-center" id="navbarsExample10">
+        
+        
+        <ul class="navbar-nav handle-nav-margin">
+            <li class="nav-item"  *ngIf=" isAdmin  || isOwner " >
+                <a class="handle-nav-item nav-link nav-link px-2 link-dark" aria-current="page"href="#" >Locations</a>
+            </li>
+          <li *ngIf=" isAdmin " class="nav-item">
+            <a class="handle-nav-item nav-link nav-link px-2 link-dark" aria-current="page" href="#">Utilisateurs</a>
+          </li>
+          <li *ngIf=" isAdmin || isOwner || isUer " class="nav-item">
+            <a class="handle-nav-item nav-link nav-link px-2 link-dark" aria-current="page" href="#" >Devenir hôte</a>
+          </li>
+          <li *ngIf=" isAdmin " class="nav-item">
+            <a class="handle-nav-item nav-link nav-link px-2 link-dark" aria-current="page" href="#" >Propriétés</a>
+          </li>
+          <li *ngIf=" isAdmin  || isOwner  " class="nav-item">
+            <a class="handle-nav-item nav-link nav-link px-2 link-dark" aria-current="page" href="#" >Valeurs</a>
+          </li>
+          <li *ngIf=" isAdmin  " class="nav-item">
+            <a class="handle-nav-item nav-link nav-link px-2 link-dark" aria-current="page" href="#" >Categories </a>
+          </li>
+          <li *ngIf=" isAdmin  || isOwner " class="nav-item">
+            <a class="handle-nav-item nav-link nav-link px-2 link-dark" aria-current="page" href="#" >Equipements</a>
+          </li>
+          <li *ngIf=" isAdmin  || isOwner || isUer" class="nav-item">
+            <a class="handle-nav-item nav-link nav-link px-2 link-dark" aria-current="page" href="#" >Reservations</a>
+          </li>
+          <li *ngIf=" isAdmin  "class="nav-item">
+            <a class="handle-nav-item nav-link nav-link px-2 link-dark" aria-current="page" href="#" >Thematiques</a>
+          </li>
+
+        </ul>
+        
+        
+
+        
+         
+          <div class=" handle-login-register-margin">
+          <ul class="nav  justify-content-center  text-end">
+                <div class="dropdown text-end dropstart px-2">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                
+                <img *ngIf="connectedUser" src="{{connectedUser.fileUrl}}" alt="user prifile photo" width="32" height="32" class="rounded-circle">
+                <div *ngIf="connectedUser" > {{connectedUser.name}} </div>
+               
+            </a>
+            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="#">Massage </a></li>
+                <li><a class="dropdown-item" href="#">Notificatons</a></li>
+                <li><a class="dropdown-item" href="#">favoris</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Aide</a></li>
+                <li><a class="dropdown-item" href="#">Deconnexion</a></li>
+            </ul>
+            </div>
+           
+            
+          </ul>
+          </div>
+         
+          
+		     
+        </div>
+           
+             
+      </div>
+     
+    </nav>

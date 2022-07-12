@@ -1,7 +1,7 @@
 import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 import { Credential } from '../interfaces/credential.interface';
 import { environment } from '../../../environments/environment'
@@ -18,21 +18,52 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient, private tokenService: TokenService) { }
 
-  public setCurentUser(): void{
+  async setCurentUser(){
 
     let id = this.tokenService.decodeToken().id
 
     this.getUserByid(id).subscribe((user: User) =>{
-      this.user$.next(user);
-      console.log(this.user$)
+
+      
+      this.adapteUserFileUrl(user);
+      
+      // this.user$.next(user);
+     user && localStorage.setItem(
+        'user',JSON.stringify(user)
+      )
+      // console.log(this.user$)
     },error => console.log(error))
-    // .pipe(
-    //   tap((user: User) =>{
-    //     this.user$.next(user);
-    //     console.log(this.user$)
-    //   })
-    // )
+
+
   }
+
+  public getCurrentUser(): any{
+    // if (localStorage.getItem('user')){
+    //   return  of(JSON.parse(localStorage.getItem('user')))
+    // }
+
+    var retrievedObject = localStorage.getItem('user');
+
+// console.log('user: ', JSON.parse(retrievedObject));
+
+      // console.log(JSON.parse(localStorage.getItem('user')))
+      // retrievedObject && console.log( JSON.parse(retrievedObject));
+    return  retrievedObject && JSON.parse(retrievedObject);
+    
+  }
+
+  public  adapteUserFileUrl(user:User){
+    if (user.fileUrl == undefined) {
+      user.fileUrl= 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png' ; 
+    } else {
+      user.fileUrl= 'https://127.0.0.1:8000/'.concat(user.fileUrl) ;
+    }
+
+   
+  
+    // return ' ? 'https://127.0.0.1:8000/'.concat(user.fileUrl)  : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png' ; 
+   
+}
 
 
   public getUserByid(id:number): Observable<User>{
@@ -42,13 +73,13 @@ export class AuthService {
   
 
 
-  public login(credentials:Credential):Observable<TokenInterface>{
+   login(credentials:Credential):Observable<TokenInterface>{
     return this.httpClient.post<TokenInterface>(this.apiUrl.concat('/login_check'),credentials)
     .pipe(
-      tap((data:TokenInterface) =>{
+      tap(async (data:TokenInterface) =>{
         if(data) {
           TokenService.setToken(data.token)
-          this.setCurentUser()
+          // await this.setCurentUser()
         } else {
           TokenService.deleteToken();
         }

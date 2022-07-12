@@ -1,15 +1,15 @@
 export interface User {
     _id?:string;
     email:string;
-    role?: string;
+    roles: string[];
     password?: string;
     reopetedPassword?: string;
     name:string;
     firstname:string;
     birthDate?: string;
-    gender?: string;
+    gender: string;
     phoneNumber?: string;
-    img?: string;
+    fileUrl: string;
     stayConnecteed?: boolean;
     stayInformed?: boolean;
 }

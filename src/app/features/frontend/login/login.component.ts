@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { AuthService } from '../shared/services/auth.service';
-import  { UserService } from '../shared/services/user.service';
+import { AuthService } from 'src/app/shared/services/auth.service'; 
+// import  { UserService } from '../shared/services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -54,15 +54,16 @@ export class LoginComponent implements OnInit {
     // console.log(this.loginForm.valid)
     if (this.loginForm.valid){
       this.authService.login(this.loginForm.getRawValue()).subscribe(
-        {
-          next: () => { 
-            // console.log(this.authService.user$.value)
+        
+           async () => { 
+            await this.authService.setCurentUser()
+            console.log(this.authService.getCurrentUser())
             this.router.navigateByUrl('/account'); 
           },
-          error: (err) => { this.error = err?.error.message || "Login ou Mot de passe incorrect";
+         (err) => { this.error = err?.error.message || "Login ou Mot de passe incorrect";}
           // console.log(err)
-        }
-        }
+        
+        
       )
     }
 

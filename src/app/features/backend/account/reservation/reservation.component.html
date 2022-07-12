@@ -1,0 +1,36 @@
+<p>Mes reservations</p>
+
+
+        <table class="table table-hover" style="text-align: center">
+  <thead>
+    <tr>
+      
+      <th scope="col">Prix</th>
+      <th scope="col" >Date de reservation</th>
+      <th scope="col">Date de début </th>
+      <th scope="col">Date de fin</th>
+      <th scope="col">State</th>
+      <th scope="col">Details</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reservation of reservations">
+      
+        <td>{{ reservation.TtcPrice }} {{ curr}} </td>
+        <td>{{ reservation.bookingDate | date:'dd/MM/yy' }}</td>
+        <td>{{ reservation.bookingStartDate | date:'dd/MM/yy' }}</td>
+        <td>{{ reservation.bookingEndDate | date:'dd/MM/yy'}}</td>
+        <td></td>
+        <td>
+            <button type="button" class="btn btn-primary btn-sm" title="voire les details" (click)="showRecervatonDetails()"> 
+                <i class="bi bi-eye"></i>
+            </button>
+            
+        </td>
+     
+    </tr>
+   
+  </tbody>
+</table>
+   

@@ -3,11 +3,16 @@ import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { House } from '../interfaces/location.interface';
 import { LocationSearchForm } from '../interfaces/location.searsh.form.interface';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationService {
+
+  public apiUrl = environment.backendServer;
+
   public houseListe$: BehaviorSubject<House[]> = new BehaviorSubject([ 
     {
       libelle: 'bulle',
@@ -161,15 +166,25 @@ export class LocationService {
   // return[]
   }
 
-  public getLocations(): Observable<House[]>{
-    return this.httpClient.get<House[]>('GET_LOCATION_URL')
-    .pipe(
-      tap((houses:House[]) =>{
-          this.houseListe$.next(houses);
-        }
-        )
-    );  
-  }
+  // public getLocations(): Observable<House[]>{
+  //   return this.httpClient.get<House[]>('GET_LOCATION_URL')
+  //   .pipe(
+  //     tap((houses:House[]) =>{
+  //         this.houseListe$.next(houses);
+  //       }
+  //       )
+  //   );  
+  // }
+
+  // public getLocationByid(id:number): Observable<House>{
+  //   return this.httpClient.get<House>(this.apiUrl.concat('/Locations/'+id))
+
+  // }
+  
+  public getLocations():Observable<House[]>{
+     
+    return this.httpClient.get<House[]>(this.apiUrl.concat('/locations'))
+ }
 
   public addLocavation(house:House):Observable<House>{
     return this.httpClient.post<House>('ADD_LOCATION_URL',house).pipe(
@@ -198,9 +213,9 @@ export class LocationService {
   
   
 
-  public getLocation(data:[]){
-    //  console.log(data)
-    //  return 
-    }
+
+    // public register(user:User):Observable<any>{
+    //   return this.httpClient.post(this.apiUrl.concat('/user'),user);
+    // }
 
 }

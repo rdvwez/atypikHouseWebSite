@@ -1,9 +1,9 @@
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { House } from '../shared/interfaces/location.interface';
-import { LocationSearchForm } from '../shared/interfaces/location.searsh.form.interface';
-import { LocationService } from '../shared/services/location.service';
+import { House } from 'src/app/shared/interfaces/location.interface'; 
+import { LocationSearchForm } from 'src/app/shared/interfaces/location.searsh.form.interface'; 
+import { LocationService } from 'src/app/shared/services/location.service'; 
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
