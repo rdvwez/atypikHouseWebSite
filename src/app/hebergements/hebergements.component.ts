@@ -11,7 +11,10 @@ export class HebergementsComponent implements OnInit {
   public descriptionContent = "Trouvez un hebergement atypic, adapter a vos besoins et Créez des Souvenirs Inoubliables"
   public pageTitle = "AtypikHouse : Nos differente hebergemnts"
 
-  constructor() { }
+  constructor(private metaService: Meta, private titleService:Title) {
+    this.metaService.addTag({name: 'description', content: this.descriptionContent});
+    this.titleService.setTitle(this.pageTitle);
+   }
 
   ngOnInit(): void {
   }

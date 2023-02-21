@@ -37,10 +37,16 @@
                     <div class="form-floating m-3">
                         <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">Email </label>
+                        <span *ngIf="loginForm.get('email')?.errors?.['required'] ">
+                            Veuillez renseigner une adresse email.
+                        </span>
                     </div>
                     <div class="form-floating m-3" >
                         <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
                         <label for="floatingPassword">Mot de passe</label>
+                        <span *ngIf="loginForm.get('password')?.errors?.['required'] ">
+                            Veuillez renseigner une adresse Mot de passe.
+                        </span>
                     </div>
 
                     <div class="checkbox mb-3 withTextColor">
