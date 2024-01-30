@@ -1,0 +1,163 @@
+<form (ngSubmit)="add()" [formGroup]="formHouse">
+  <div class="row">
+    <div class="col-sm-6 mb-4">
+      <app-input-text
+        [formName]="dataConst.forms.libelle"
+        [label]="dataConst.forms.labelLibelle"
+        [formGroup]="formHouse"
+        [forInput]="'forAddHouseLibelle'"
+        [placeHolder]="dataConst.forms.labelLibelle">
+      </app-input-text>
+    </div>
+    <div class="col-sm-6 mb-4">
+      <app-input-text
+        [formName]="dataConst.forms.description"
+        [label]="dataConst.forms.labelDescription"
+        [formGroup]="formHouse"
+        [forInput]="'forAddHouseDescription'"
+        [placeHolder]="dataConst.forms.labelDescription">
+      </app-input-text>
+    </div>
+    <div class="col-sm-6 mb-4">
+      <app-input-text
+        [formName]="dataConst.forms.bedroom"
+        [label]="dataConst.forms.labelBedroom"
+        [formGroup]="formHouse"
+        [forInput]="'forAddHouseBedroom'"
+        [placeHolder]="dataConst.forms.labelBedroom">
+      </app-input-text>
+    </div>
+    <div class="col-sm-6 mb-4">
+      <app-input-text
+        [formName]="dataConst.forms.person"
+        [label]="dataConst.forms.labelPerson"
+        [formGroup]="formHouse"
+        [forInput]="'forAddHousePerson'"
+        [placeHolder]="dataConst.forms.labelPerson">
+      </app-input-text>
+    </div>
+    <div class="col-sm-6 mb-4">
+      <app-input-text
+        [formName]="dataConst.forms.parking"
+        [label]="dataConst.forms.labelParking"
+        [formGroup]="formHouse"
+        [forInput]="'forAddHouseParking'"
+        [placeHolder]="dataConst.forms.labelParking">
+      </app-input-text>
+    </div>
+    <div class="col-sm-6 mb-4">
+      <app-input-text
+        [formName]="dataConst.forms.area"
+        [label]="dataConst.forms.labelArea"
+        [formGroup]="formHouse"
+        [forInput]="'forAddHouseArea'"
+        [placeHolder]="dataConst.forms.labelArea">
+      </app-input-text>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="mb-4">
+        <app-input-switch
+          [formName]="dataConst.forms.show"
+          [forInput]="'forHouseShow'"
+          [formGroup]="formHouse">
+          {{dataConst.forms.labelShow}}
+        </app-input-switch>
+      </div>
+    </div>
+
+    <div class="col-sm-12 mb-4">
+      <app-input-switch
+        [formName]="dataConst.forms.water"
+        [forInput]="'forHouseWater'"
+        [formGroup]="formHouse">
+        {{dataConst.forms.labelWater}}
+      </app-input-switch>
+    </div>
+
+    <div class="col-sm-12 mb-4">
+      <app-input-switch
+        [formName]="dataConst.forms.power"
+        [forInput]="'forHousePower'"
+        [formGroup]="formHouse">
+        {{dataConst.forms.labelPower}}
+      </app-input-switch>
+    </div>
+
+    <div class="col-sm-6 mb-4">
+      <app-input-text
+        [formName]="dataConst.forms.price"
+        [label]="dataConst.forms.labelPrice"
+        [formGroup]="formHouse"
+        [forInput]="'forAddHousePrice'"
+        [placeHolder]="dataConst.forms.labelPrice">
+      </app-input-text>
+    </div>
+    <div class="col-sm-6 mb-4">
+      <app-input-text
+        [formName]="dataConst.forms.address"
+        [label]="dataConst.forms.labelAddress"
+        [formGroup]="formHouse"
+        [forInput]="'forAddHouseAddress'"
+        [placeHolder]="dataConst.forms.labelAddress">
+      </app-input-text>
+    </div>
+    <div class="col-sm-6 mb-4">
+      <app-input-text
+        [formName]="dataConst.forms.longitude"
+        [label]="dataConst.forms.labelLongitude"
+        [formGroup]="formHouse"
+        [forInput]="'forAddHouseLongitude'"
+        [placeHolder]="dataConst.forms.labelLongitude">
+      </app-input-text>
+    </div>
+    <div class="col-sm-6 mb-4">
+      <app-input-text
+        [formName]="dataConst.forms.latitude"
+        [label]="dataConst.forms.labelLatitude"
+        [formGroup]="formHouse"
+        [forInput]="'forAddHouseLatitude'"
+        [placeHolder]="dataConst.forms.labelLatitude">
+      </app-input-text>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="tom-select-custom">
+        <app-input-label
+          [forInput]="'AddHouseCategory'">{{dataConst.forms.labelCategory}}</app-input-label>
+        <app-data-select
+          [data]="categories"
+          [formGroup]="formHouse"
+          [formName]="dataConst.forms.category"
+          [placeHolder]="dataConst.forms.labelCategory">
+        </app-data-select>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="tom-select-custom">
+        <app-input-label
+          [forInput]="'AddHouseThematic'">
+          {{dataConst.forms.labelThematic}}
+        </app-input-label>
+        <app-data-select
+          [data]="thematics"
+          [formGroup]="formHouse"
+          [formName]="dataConst.forms.thematic"
+          [placeHolder]="dataConst.forms.labelThematic">
+        </app-data-select>
+      </div>
+    </div>
+    <hr>
+    <div class="col-sm-3">
+      <div class="mb-4">
+        <app-button-submit
+          [loading]="loading"
+          [formGroup]="formHouse"
+          [customClass]="'btn btn-primary btn-lg'">
+          {{displayBtnLabel()}}
+        </app-button-submit>
+      </div>
+    </div>
+  </div>
+</form>

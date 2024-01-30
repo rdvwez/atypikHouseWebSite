@@ -1,0 +1,36 @@
+<form (ngSubmit)="emitAction()" [formGroup]="valueForm">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="mb-4">
+        <app-input-text
+          [formName]="dataConst.forms.libelle"
+          [label]="dataConst.forms.labelLibelle"
+          [formGroup]="valueForm"
+          [forInput]="'forAddPropertyLibelle'"
+          [placeHolder]="dataConst.forms.labelLibelle">
+        </app-input-text>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="tom-select-custom">
+        <app-input-label [forInput]="'AddPropertyValue'">{{dataConst.forms.labelProperty}}</app-input-label>
+        <app-data-select
+          [data]="properties"
+          [formGroup]="valueForm"
+          [formName]="'property_object'"
+          [placeHolder]="dataConst.forms.labelProperty">
+        </app-data-select>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <app-button-submit
+      [loading]="loading"
+      [formGroup]="valueForm"
+      [customClass]="'btn btn-primary btn-lg'">
+      {{displayBtnLabel()}}
+    </app-button-submit>
+  </div>
+</form>
+<!-- End Form -->

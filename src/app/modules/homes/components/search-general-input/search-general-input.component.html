@@ -1,0 +1,39 @@
+<form (ngSubmit)="emitAction()" [formGroup]="searchForm">
+  <!-- Input Card -->
+  <div class="input-card input-card-sm">
+    <app-date-input
+      [formName]="'start_date'"
+      [formGroup]="searchForm"
+      [dateOptions]="dateOptions"
+      [placeHolder]="'Date de réservation'">
+    </app-date-input>
+
+    <div class="input-card-form">
+      <label for="jobTitleForm2" class="form-label visually-hidden">
+        {{dataConst.wording.chooseCategory}}
+      </label>
+      <div class="input-group input-group-merge">
+                    <span class="input-group-prepend input-group-text">
+                      <i class="bi-search"></i>
+                    </span>
+        <input type="text" class="form-control" id="jobTitleForm2" [formControlName]="'thematic_id'"
+               [placeholder]="dataConst.wording.chooseCategory" aria-label="dataConst.wording.chooseCategory">
+      </div>
+    </div>
+
+    <div class="input-card-form">
+      <label for="jobTitleForm3" class="form-label visually-hidden">{{dataConst.wording.chooseCategory}}</label>
+      <div class="input-group input-group-merge">
+                    <span class="input-group-prepend input-group-text">
+                      <i class="bi-search"></i>
+                    </span>
+        <input
+          type="text" class="form-control" id="jobTitleForm3"
+          [formControlName]="'thematic_id'"
+          [placeholder]="dataConst.wording.chooseCategory" aria-label="dataConst.wording.chooseCategory">
+      </div>
+    </div>
+    <app-button-text [customClass]="'btn btn-primary'">{{dataConst.wording.searchBtn}}</app-button-text>
+  </div>
+  <!-- End Input Card -->
+</form>

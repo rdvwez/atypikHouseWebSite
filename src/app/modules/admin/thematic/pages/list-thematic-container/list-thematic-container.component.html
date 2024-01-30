@@ -1,0 +1,6 @@
+<app-thematic-list
+  [thematics]="thematics$| async"
+  [headers]="headers"
+  (thematic)="selectThematic($event)"
+  [loading]="loading$ | async"
+></app-thematic-list>

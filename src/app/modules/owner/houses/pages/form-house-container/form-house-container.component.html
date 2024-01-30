@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-header border-bottom card-header-content-sm-between">
+    <div class="js-nav-scroller hs-nav-scroller-horizontal">
+      <app-button-text
+        [customClass]="'btn btn-primary btn-sm'" (click)="gotTo()">
+        {{dataConst.wording.listButton}}
+      </app-button-text>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h3 class="text-center">Ajouter une maison</h3>
+    <br>
+    <app-house-form
+      [loading]="loading$ | async"
+      [houseSelected]="house$ | async"
+      [thematics]="thematics$ | async"
+      [categories]="categories$ | async"
+      (action)="formAction($event)">
+    </app-house-form>
+  </div>
+</div>

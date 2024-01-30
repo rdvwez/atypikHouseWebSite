@@ -1,0 +1,18 @@
+<!-- Body -->
+<div class="card-body">
+  <app-filter-table
+    (onFilterText)="onFilter($event)">
+  </app-filter-table>
+</div>
+<!-- End Body -->
+<div class="text-center" *ngIf="loading">
+  <app-load></app-load>
+</div>
+<!-- Table -->
+<app-data-table
+  [COLUMNS]="headers"
+  [DATA]="values"
+  [haveActions]="true"
+  (selectRow)="selectElement($event)">
+</app-data-table>
+<!-- End Table -->

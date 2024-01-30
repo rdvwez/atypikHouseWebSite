@@ -1,0 +1,45 @@
+<div class="card card-flush shadow-none h-100">
+  <a class="card-pinned" [href]="environment.hostImage + house.images[0].path" data-fslightbox="propertyGridGallery1">
+    <img class="card-img" [src]="environment.hostImage + house.images[0].path"
+         alt="Atypikhouse: - Image de base d'un hébergemeent insolite de type {{house.category}}">
+    <div class="card-pinned-bottom-end">
+        <span class="btn btn-light btn-xs btn-icon">
+          <i class="bi-images"></i>
+        </span>
+    </div>
+  </a>
+  <a class="d-none" href="../../../../../assets/img/1920x1080/img20.jpg" data-fslightbox="propertyGridGallery1"></a>
+  <a class="d-none" href="../../../../../assets/img/1920x1080/img17.jpg" data-fslightbox="propertyGridGallery1"></a>
+  <a class="d-none" href="../../../../../assets/img/1920x1080/img16.jpg" data-fslightbox="propertyGridGallery1"></a>
+  <!-- Body -->
+  <a class="card-body p-2" [routerLink]="['/destinations', house.id]">
+    <span class="card-subtitle text-body">{{house.libelle}}</span>
+
+    <div class="row align-items-center mb-3">
+      <div class="col">
+        <h4 class="card-title text-inherit">{{house.address}}</h4>
+      </div>
+      <!-- End Col -->
+
+      <div class="col-auto">
+        <h3 class="card-title text-primary">{{house.price | currency: 'EUR'}}</h3>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+
+    <ul class="list-inline list-separator text-body small">
+      <li class="list-inline-item">
+                  <span class="svg-icon svg-icon-xs svg-inline text-muted me-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path
+                      d="M22,19.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V16H4v3.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V4.5A.5.5,0,0,1,2.5,4h1a.5.5,0,0,1,.5.5V13H21a1,1,0,0,1,1,1ZM20,8H12a2,2,0,0,0-2,2v1.5a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5V10A2,2,0,0,0,20,8ZM5.5,12h3a.5.5,0,0,0,.5-.5V11a2,2,0,0,0-4,0v.5A.5.5,0,0,0,5.5,12Z"/></svg>
+                  </span>
+        {{house.bedroom_number}} lits
+      </li>
+      <li class="list-inline-item">
+        <i class="bi-rulers text-muted me-1"></i> {{house.area}} m2
+      </li>
+    </ul>
+  </a>
+  <!-- End Body -->
+</div>

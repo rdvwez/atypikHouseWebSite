@@ -1,0 +1,12 @@
+<ng-container [formGroup]="formGroup">
+  <label for="reservationDate" class="form-label visually-hidden">
+    {{dataConst.wording.reservationDate}}
+  </label>
+  <input
+  id="reservationDate"
+    (ngModelChange)="onChangeDate()"
+    [formControlName]="formName"
+    type="text"
+    class="js-flatpickr form-control flatpickr-custom"
+    [placeholder]="placeHolder">
+</ng-container>

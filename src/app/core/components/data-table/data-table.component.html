@@ -1,0 +1,62 @@
+<div class="table-responsive datatable-custom">
+  <div id="datatable_wrapper" class="dataTables_wrapper no-footer">
+    <table id="datatable"
+           class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table dataTable no-footer">
+      <thead class="thead-light">
+
+      <tr role="row">
+        <ng-container *ngFor="let header of headers">
+          <th scope="col" class="table-column-pe-0 sorting_disabled" rowspan="1" colspan="1"
+              aria-label="" *ngIf="header == 'selected'">
+            <div class="form-check">
+              <input id="datatableCheckAll" type="checkbox" class="form-check-input">
+              <label class="form-check-label" for="datatableCheckAll"></label>
+            </div>
+          </th>
+          <th *ngIf="header != 'actions' && header != 'selected'" class="table-column-ps-0 sorting" tabindex="0"
+              aria-controls="datatable" rowspan="1" colspan="1"
+              aria-label="Order: activate to sort column ascending">{{header}}
+          </th>
+          <th *ngIf="header == 'actions'" class="sorting_disabled" rowspan="1" colspan="1"
+              aria-label="Invoice">{{header}}
+          </th>
+        </ng-container>
+      </tr>
+
+      </thead>
+      <tbody>
+      <tr role="row" class="odd" *ngFor="let data of DATA">
+        <ng-container *ngFor="let h of headers">
+          <td class="table-column-pe-0" *ngIf="h ==='selected'">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="ordersCheck1">
+              <label class="form-check-label" for="ordersCheck1"></label>
+            </div>
+          </td>
+
+          <td *ngIf="h !=='selected' && h != 'actions' && !columnTypeBool(h, data)">{{displayData(h, data)}}</td>
+          <td *ngIf="h !=='selected' && h != 'actions' && columnTypeBool(h, data)">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="stocksCheckbox1"
+                     [checked]="displayData(h, data)">
+              <label class="form-check-label" for="stocksCheckbox1"></label>
+            </div>
+          </td>
+
+          <td *ngIf="h == 'actions'">
+            <div class="btn-group" role="group" aria-label="Edit group">
+              <a (click)="selectElement(data, actionsEnum.EDIT)" class="btn btn-white">
+                <i class="bi-pencil me-1"></i>
+              </a>
+              <a (click)="selectElement(data, actionsEnum.DELETE)" class="btn btn-white">
+                <i class="bi-trash"></i>
+              </a>
+            </div>
+          </td>
+        </ng-container>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

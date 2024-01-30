@@ -1,0 +1,36 @@
+<form (ngSubmit)="emitAction()" [formGroup]="categoryForm">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="mb-4">
+        <app-input-text
+          [formName]="dataConst.forms.libelle"
+          [label]="dataConst.forms.labelLibelle"
+          [formGroup]="categoryForm"
+          [forInput]="'forAddCategory'"
+          [placeHolder]="dataConst.forms.labelLibelle">
+        </app-input-text>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="mb-4">
+        <app-input-switch
+          [formName]="dataConst.forms.show"
+          [forInput]="'forShow'"
+          [formGroup]="categoryForm">
+          {{dataConst.forms.labelShow}}
+        </app-input-switch>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <app-button-submit
+      [formGroup]="categoryForm"
+      [customClass]="'btn btn-primary btn-lg'">
+      {{displayBtnLabel()}}
+    </app-button-submit>
+  </div>
+</form>
+<!-- End Form -->

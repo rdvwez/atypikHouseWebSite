@@ -1,0 +1,12 @@
+<ng-container [formGroup]="formGroup">
+  <select [formControlName]="formName" autocomplete="off"
+          class="js-select form-select mb-4 from-control-lg"
+          tabindex="-1"
+          data-hs-tom-select-options='{
+            "placeholder": "Select user..."
+          }'
+          aria-label=".form-select-lg example" id="tomselect-2">
+    <option value="">{{placeHolder}}</option>
+    <option *ngFor="let d of data; trackBy: trackByFn" [value]="d.name">{{d.displayName}}</option>
+  </select>
+</ng-container>

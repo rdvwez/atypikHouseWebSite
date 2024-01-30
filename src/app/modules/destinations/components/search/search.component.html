@@ -1,0 +1,17 @@
+<ng-container [formGroup]="formGroup">
+  <label
+    for="searchPropertyFilterForm"
+    class="visually-hidden form-label">
+    {{label}}
+  </label>
+  <div class="input-group input-group-merge">
+    <span class="input-group-prepend input-group-text">
+      <i class="bi-search"></i>
+    </span>
+    <input [formControlName]="formName"
+           type="text" class="form-control form-control-md"
+           id="searchPropertyFilterForm"
+           [placeholder]="placeholder"
+           aria-label="Search property">
+  </div>
+</ng-container>

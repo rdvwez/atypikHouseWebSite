@@ -1,0 +1,76 @@
+<div class="card mb-3 mb-lg-5">
+  <!-- Header -->
+  <div class="card-header card-header-content-sm-between">
+    <div class="d-grid gap-2 mb-2 mb-sm-0">
+      <h4 class="card-header-title">{{dataConst.wording.titleList}}</h4>
+      <!-- Datatable Info -->
+      <div id="datatableCounterInfo" style="display: none;">
+        <div class="d-flex align-items-center">
+                    <span class="fs-5 me-3">
+                      <span id="datatableCounter">0</span>
+                      {{generalConst.wording.selected}}
+                    </span>
+          <a class="btn btn-outline-danger btn-sm" href="javascript:;">
+            <i class="bi-trash"></i> {{generalConst.wording.delete}}
+          </a>
+        </div>
+      </div>
+      <!-- End Datatable Info -->
+    </div>
+
+    <!-- Nav Scroller -->
+    <div class="js-nav-scroller hs-nav-scroller-horizontal">
+      <!-- Nav -->
+      <ul class="nav nav-segment nav-fill">
+        <li class="nav-item">
+          <button type="text" class="btn btn-primary" (click)="add()">{{generalConst.wording.add}}</button>
+        </li>
+      </ul>
+      <!-- End Nav -->
+    </div>
+    <!-- End Nav Scroller -->
+  </div>
+  <!-- End Header -->
+
+  <!-- Body -->
+  <div class="card-body">
+    <!-- Input Group -->
+    <div class="input-group input-group-merge">
+      <div class="input-group-prepend input-group-text">
+        <i class="bi-search"></i>
+      </div>
+      <input id="datatableSearch" type="search" class="form-control" placeholder="Recherche"
+             aria-label="Recherche">
+    </div>
+    <!-- End Input Group -->
+  </div>
+  <!-- End Body -->
+
+  <div class="text-center" *ngIf="loading">
+    <app-load></app-load>
+  </div>
+
+  <!-- Table -->
+  <app-data-table
+    [COLUMNS]="headers"
+    [DATA]="users"
+    [haveActions]="true"
+    (selectRow)="selectElement($event)">
+  </app-data-table>
+  <!-- End Table -->
+
+  <!-- Footer -->
+  <div class="card-footer">
+    <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
+      <div class="col-sm mb-2 mb-sm-0">
+        <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
+          <span class="me-2">Showing:</span>
+        </div>
+      </div>
+      <!-- End Col -->
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Footer -->
+</div>

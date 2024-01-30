@@ -1,0 +1,34 @@
+<!-- Card -->
+
+<div class="card card-transition h-100 aos-init aos-animate" href="#" data-aos="fade-up" data-aos-delay="150">
+  <div class="card-pinned">
+    <img class="card-img-top" [src]="getUrlImage(house.images[0].path)" alt="Image Description">
+    <span class="card-pinned-top-start">
+      <span class="badge  rounded-pill">{{house.price| currency: 'EUR'}}</span>
+    </span>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title text-inherit">{{house.libelle}}</h3>
+    <p class="card-text text-body"> {{house.description}}</p>
+  </div>
+  <div class="card-footer border-top">
+    <app-button-text
+      (click)="selectElement(actionsEnum.VIEW)"
+      [customClass]="'btn btn-sm btn-outline-primary btn-icon me-2'">
+      <i class="bi-eye"></i>
+    </app-button-text>
+
+    <app-button-text
+      (click)="selectElement(actionsEnum.EDIT)"
+      [customClass]="'btn btn-sm btn-outline-warning btn-icon me-2'">
+      <i class="bi-pencil-square"></i>
+    </app-button-text>
+
+    <app-button-text
+      (click)="selectElement(actionsEnum.DELETE)"
+      [customClass]="'btn btn-sm btn-outline-danger btn-icon'">
+      <i class="bi-trash3-fill"></i>
+    </app-button-text>
+  </div>
+</div>
+<!-- End Card -->

@@ -1,0 +1,13 @@
+<ng-container [formGroup]="formGroup">
+  <app-input-label [forInput]="forInput">
+    {{label}}
+  </app-input-label>
+  <input [type]="type"
+         [formControlName]="formName"
+         [class]="customClass"
+         [name]="formName"
+         [id]="forInput"
+         [placeholder]="placeHolder">
+  <app-error-message
+    *ngIf="isErrorForm()">{{errorMessage}}</app-error-message>
+</ng-container>

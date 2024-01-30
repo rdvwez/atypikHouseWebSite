@@ -1,0 +1,70 @@
+<!-- Heading -->
+<div class="text-center mb-5 mb-md-7">
+  <app-title [title]="authConst.wording.welcome"></app-title>
+  <app-text-page [text]="authConst.wording.titleSignIn"></app-text-page>
+</div>
+<!-- End Heading -->
+<div class="text-center">
+  <a class="navbar-brand" href="../../../../index.html" aria-label="Front">
+    <img class="navbar-brand-logo" src="../../../../assets/logo/logo1.png" alt="Logo Atypikhouse">
+  </a>
+</div>
+<!-- Form -->
+<form class="js-validate needs-validation"
+      (ngSubmit)="login()"
+      [formGroup]="authForm">
+
+  <div class="text-center">
+    <app-alert
+      [type]="alert"
+      *ngIf="alert">{{messageResponse}}</app-alert>
+  </div>
+  <!-- Email -->
+  <div class="mb-3">
+    <app-input-text
+      [formGroup]="authForm"
+      [forInput]="'signInForEmail'"
+      [formName]="authConst.forms.email"
+      [label]="authConst.wording.email"
+      [placeHolder]="authConst.forms.emailPlaceHolder"
+      [errorMessage]="authConst.forms.errors.email">
+    </app-input-text>
+  </div>
+  <!-- End Email -->
+
+  <!-- Password -->
+  <div class="mb-4">
+    <app-password-form
+      [formGroup]="authForm"
+      [forInput]="'signInForPassword'"
+      [formName]="authConst.forms.password"
+      [label]="authConst.wording.password"
+      [placeHolder]="authConst.forms.passwordPlaceHolder">
+    </app-password-form>
+  </div>
+  <!-- End Password -->
+
+  <div class="d-grid mb-3">
+    <app-button-submit
+      [loading]="loading$ | async"
+      [formGroup]="authForm"
+      [customClass]="'btn btn-primary btn-lg'">
+      {{authConst.wording.signIn}}
+    </app-button-submit>
+  </div>
+  <div class="d-flex justify-content-center mb-3">
+    <p class="mt-2">
+      <app-google-login-button [buttonText]="'Se connecter avec Google'" (customSignin)="onCustomSignin()"></app-google-login-button>
+    </p>
+  </div>
+  
+  <div class=" mb-3 ">
+    {{authConst.wording.notRegistered}}
+    <app-link [urlLink]="'/auth/signup'">{{authConst.wording.goTosignUp}}</app-link>
+  </div>
+  <div class=" mb-3 ">
+    <app-link [urlLink]="'/'">{{authConst.wording.goHome}}</app-link>
+  </div>
+</form>
+
+<!-- End Form -->

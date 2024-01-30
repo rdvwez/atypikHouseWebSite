@@ -1,0 +1,8 @@
+<app-house-list
+  [houses]="houses$ | async"
+  [headers]="headers"
+  (house)="onSelectElement($event)"
+  [total]="total"
+  [page]="this.page"
+  (onChangePage)="getPage($event)"
+></app-house-list>

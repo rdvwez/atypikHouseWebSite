@@ -1,0 +1,17 @@
+<div class="text-center">
+  <img class="img-fluid mr-4" src="../../../../../assets/img/100x60/img1.jpg" alt="Carte Visa">
+  <img class="img-fluid mr-4" src="../../../../../assets/img/100x60/img2.jpg" alt="Master carte">
+  <img class="img-fluid mr-4" src="../../../../../assets/img/100x60/img5.jpg" alt="PayPal">
+  <img class="img-fluid mr-4" src="../../../../../assets/img/100x60/img6.jpg" alt="Apple pay">
+  <p class="h4 mb-3"> Reservation</p>
+
+  <app-alert [type]="alert" *ngIf="alert">
+    {{messageResponse}}
+  </app-alert>
+</div>
+
+<app-form-reservation
+  (formAction)="onFormAction($event)"
+  [selectedHouseId]="selectedHouseId"
+  [amount]="amount">
+</app-form-reservation>

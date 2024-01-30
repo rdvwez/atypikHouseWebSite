@@ -1,0 +1,5 @@
+span {
+  position: fixed;
+  float: right;
+  cursor: grab;
+}
