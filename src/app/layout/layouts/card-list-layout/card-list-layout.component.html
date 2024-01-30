@@ -1,0 +1,13 @@
+<div class="card mb-3 mb-lg-5">
+  <app-card-header
+    [titleList]="activeNavigation?.titleList"
+    (actionCardHeader)="actionHeader($event)"
+  ></app-card-header>
+  <!-- Header -->
+
+  <!-- End Header -->
+  <router-outlet></router-outlet>
+  <!-- Footer -->
+  <app-card-footer></app-card-footer>
+  <!-- End Footer -->
+</div>

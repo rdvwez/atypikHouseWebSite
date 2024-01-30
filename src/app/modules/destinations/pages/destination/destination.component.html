@@ -1,0 +1,77 @@
+<!-- Filter Form -->
+<div class="gradient-x-three-sm-primary">
+  <div class="container content-space-2">
+    <form (ngSubmit)="onSearch()" [formGroup]="searchForm">
+      <div class="row gx-2">
+        <div class="col-lg mb-2 mb-lg-0">
+          <!-- Form -->
+          <app-search
+            [formGroup]="searchForm"
+            [formName]="'city'"
+            [label]="dataConst.wording.search"
+            [placeholder]="dataConst.wording.citySearch"
+          ></app-search>
+          <!-- End Form -->
+        </div>
+        <!-- End Col -->
+        <div class="col-auto mb-2 mb-lg-0">
+          <!-- Dropdown -->
+          <app-data-select
+            [data]="this.categories$ | async"
+            [formGroup]="searchForm"
+            [formName]="'category_id'"
+            [placeHolder]="dataConst.wording.chooseCategory"
+          >
+          </app-data-select>
+          <!-- End Dropdown -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-auto mb-2 mb-lg-0">
+          <app-data-select
+            [data]="this.thematics$ | async"
+            [formGroup]="searchForm"
+            [formName]="'thematic_id'"
+            [placeHolder]="dataConst.wording.chooseThematic">
+          </app-data-select>
+        </div>
+        <!-- End Col -->
+        <div class="col-auto mb-2 mb-lg-0">
+          <app-button-submit
+            [formGroup]="searchForm"
+            [customClass]="'btn btn-primary btn-md'">
+            {{dataConst.wording.searchBtn}}
+          </app-button-submit>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </form>
+    <!-- End Row -->
+  </div>
+</div>
+<!-- End Filter Form -->
+
+<!-- Card Grid -->
+<div class="container content-space-t-1 content-space-b-2 content-space-b-lg-3">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
+    <div class="col mb-3" *ngFor="let house of houses$ | async; trackBy: trackByFn">
+      <!-- Card -->
+      <app-item-house [house]="house"></app-item-house>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Row -->
+
+  <!-- Pagination -->
+  <nav aria-label="Page navigation" class="pagination justify-content-center">
+    <ngb-pagination
+      [collectionSize]="this.total"
+      [(page)]="page"
+      (pageChange)="getPage($event)" aria-label="Default pagination">
+    </ngb-pagination>
+    <!-- End Pagination -->
+  </nav>
+</div>
+<!-- End Card Grid -->

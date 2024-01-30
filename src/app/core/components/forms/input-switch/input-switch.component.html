@@ -1,0 +1,10 @@
+<div class="form-check form-switch" [formGroup]="formGroup">
+  <input
+    type="checkbox"
+    [formControlName]="formName"
+    [class]="customClass"
+    id="formSwitch1">
+  <label class="form-label" [for]="forInput">
+    <ng-content></ng-content>
+  </label>
+</div>

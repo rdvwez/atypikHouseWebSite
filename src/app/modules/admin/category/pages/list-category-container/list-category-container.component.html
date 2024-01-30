@@ -1,0 +1,7 @@
+<app-category-list
+  [categories]="categories$ | async"
+  [headers]="headers"
+  (category)="selectCategory($event)"
+  [loading]="loading$ | async"
+>
+</app-category-list>

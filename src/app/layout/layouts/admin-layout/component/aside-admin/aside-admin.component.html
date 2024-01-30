@@ -1,0 +1,30 @@
+<aside
+  class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-dark bg-dark">
+  <div class="navbar-vertical-container">
+    <div class="navbar-vertical-footer-offset">
+      <div class="navbar-brand-wrapper justify-content-between">
+        <!-- Logo -->
+        <a class="navbar-brand" aria-label="Front" style="margin: 3rem 0 0 3rem;">
+          <img class="navbar-brand-logo" src="../../../../../../assets/logo/logo3.png"
+               alt="Logo"
+               data-hs-theme-appearance="default">
+        </a>
+        <!-- End Logo -->
+      </div>
+      <!-- Content -->
+      <div class="navbar-vertical-content">
+        <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
+          <!-- Collapse -->
+          <span class="dropdown-header mt-4">Menu</span>
+          <small class="bi-three-dots nav-subtitle-replacer"></small>
+
+          <item-navigation-admin (itemClick)="setLink($event)"
+                                 *ngFor="let menuItem of menuAdmin; trackBy: trackByFn"
+                                 [item]="menuItem">
+          </item-navigation-admin>
+        </div>
+      </div>
+      <!-- End Content -->
+    </div>
+  </div>
+</aside>

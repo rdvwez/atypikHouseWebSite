@@ -1,0 +1,10 @@
+section.cgu{
+    div.cgu-text{
+        width: 70%;
+        font-size: 1.2rem;
+        text-align: justify;
+        h2{
+            font-size: 2rem;
+        }
+    }
+}

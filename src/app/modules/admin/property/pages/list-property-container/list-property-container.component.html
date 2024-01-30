@@ -1,0 +1,5 @@
+<app-property-list
+  [properties]="properties$ | async"
+  [headers]="headers"
+  (property)="onSelectElement($event)"
+></app-property-list>

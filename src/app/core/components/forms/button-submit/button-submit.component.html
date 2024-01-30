@@ -1,0 +1,8 @@
+<ng-container [formGroup]="formGroup">
+  <div class="d-grid mb-3">
+    <button type="submit" [class]="customClass" [disabled]="formGroup.invalid">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>&nbsp;&nbsp;
+      <ng-content></ng-content>
+    </button>
+  </div>
+</ng-container>

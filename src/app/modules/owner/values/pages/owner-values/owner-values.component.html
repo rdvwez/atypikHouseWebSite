@@ -1,0 +1,6 @@
+<app-value-list
+  [values]="values$ | async"
+  [headers]="headers"
+  (value)="onSelectElement($event)"
+  [loading]="loading$ | async"
+></app-value-list>

@@ -1,0 +1,43 @@
+<!-- filter -->
+<div class="row my-2">
+  <div class="col-md mb-3 mb-md-5">
+    <app-filter-table
+      (onFilterText)="onFilter($event)">
+    </app-filter-table>
+  </div>
+</div>
+<!-- end Filter -->
+<!--- Content  list owner house -->
+<div class="row mb-5 mb-sm-5">
+  <div class="col-md-4 mb-3 mb-md-5" *ngFor="let house of houses$ | async">
+    <app-house-card-item
+      [house]="house"
+      (action)="onSelectElement($event)">
+    </app-house-card-item>
+  </div>
+</div>
+<!-- end content list owner house -->
+<hr>
+<div class="row justify-content-center justify-content-sm-between align-items-sm-center">
+  <div class="col-sm mb-2 mb-sm-0">
+    <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
+      <span class="me-2">Total: {{total}}</span>
+    </div>
+  </div>
+
+  <div class="col-sm-auto">
+    <div class="d-flex justify-content-center justify-content-sm-end">
+      <!-- Pagination -->
+      <ngb-pagination
+        [collectionSize]="total"
+        [(page)]="page"
+        (pageChange)="getPage($event)" aria-label="Default pagination">
+      </ngb-pagination>
+      <!-- Pagination -->
+    </div>
+  </div>
+  <!-- End Col -->
+  <!-- End Col -->
+</div>
+<!-- End Row -->
+

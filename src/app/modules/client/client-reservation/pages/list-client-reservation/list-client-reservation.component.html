@@ -1,0 +1,11 @@
+<div class="card">
+  <!-- Header -->
+  <div class="card-header">
+    <h5 class="card-header-title">{{dataConst.wording.listMenu}}</h5>
+  </div>
+
+  <app-list-reservation
+    [reservations]="reservations$ | async"
+    (listReservationAction)="onAction($event)"
+  ></app-list-reservation>
+</div>

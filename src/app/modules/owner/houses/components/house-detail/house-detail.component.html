@@ -1,0 +1,287 @@
+<ng-container *ngIf="house">
+  <div class="row align-items-lg-center mb-2">
+    <div class="col-lg mb-2 mb-lg-0">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item active" aria-current="page">
+            <span class="h3">{{house.libelle}}</span> / {{completeAddress(house)}}</li>
+        </ol>
+      </nav>
+      <!-- End Breadcrumb -->
+    </div>
+    <!-- End Col -->
+    <div class="col-lg-auto">
+      <a class="btn btn-sm btn-primary me-2"
+         *ngIf="haveModifyRight()"
+         href="javascript:;"
+         (click)="emitAction(action.GOTO_MODIFY, house)">
+        Modifier
+      </a>
+    </div>
+    <!-- End Col -->
+  </div>
+
+  <div class="mb-5">
+    <div class="rounded-2 overflow-hidden">
+      <div class="row gx-2">
+        <div class="col-md-8">
+          <!-- Gallery -->
+          <a class="d-block position-relative" [href]="getUrlImage(house, 0)"
+             data-fslightbox="propertyOverviewGallery">
+            <img class="img-fluid w-100" [src]="getUrlImage(house, 0)"
+                 alt="Atypikhouse: - image de base d'un hébergemeent insolite de type {{house.category}}">
+            <div class="position-absolute bottom-0 end-0 mb-3 me-3">
+                <span class="d-md-none btn btn-sm btn-light">
+                  <i class="bi-arrows-fullscreen me-2"></i> View photos
+                </span>
+            </div>
+          </a>
+          <!-- End Gallery -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-4 d-none d-md-inline-block">
+          <!-- Gallery -->
+          <a class="d-block mb-2" [href]="getUrlImage(house, 1)"
+             data-fslightbox="propertyOverviewGallery">
+            <img class="img-fluid w-100" [src]="getUrlImage(house, 1)"
+                 alt="Atypikhouse: - image numéro 2 montrant les details d'un hébergemeent insolite de type {{house.category}}">
+
+          </a>
+          <!-- End Gallery -->
+
+          <!-- Gallery -->
+          <a class="d-block position-relative" [href]="getUrlImage(house, 2)"
+             data-fslightbox="propertyOverviewGallery">
+            <img class="img-fluid w-100" [src]="getUrlImage(house, 2)"
+                 alt="Atypikhouse: - image numéro 3 montrant les details d'un hébergemeent insolite de type {{house.category}}">
+            <div class="position-absolute bottom-0 end-0 mb-3 me-3">
+                <span class="d-none d-md-inline-block btn btn-sm btn-light">
+                  <i class="bi-arrows-fullscreen me-2"></i> View photos
+                </span>
+            </div>
+          </a>
+          <!-- End Gallery -->
+
+          <a class="d-none" href="../../../../../../assets/img/1920x1080/img24.jpg"
+             data-fslightbox="propertyOverviewGallery"></a>
+          <a class="d-none" href="../../../../../../assets/img/1920x1080/img20.jpg"
+             data-fslightbox="propertyOverviewGallery"></a>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+
+    <div class="d-flex justify-content-end mt-2">
+      <span class="small text-dark fw-semibold">Publié le</span>
+      <span class="small ms-1">{{house.created_at | date: 'dd/MM/yyyy'}}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-7 mb-9 mb-lg-0">
+      <div class="row justify-content-lg-between mb-7">
+        <div class="col-12 col-sm-6 mb-5 mb-sm-0">
+          <h1 class="h2 mb-0">{{house.address}}</h1>
+          <span class="d-block text-dark mb-3">{{house.city}}, {{house.country}}</span>
+
+          <ul class="list-inline list-separator font-size-1 text-body">
+            <li class="list-inline-item">
+              <i class="fas fa-bed text-muted me-1"></i> {{house.bedroom_number}} Chambre
+            </li>
+            <li class="list-inline-item">
+              <i class="fas fa-bath text-muted me-1"></i> {{house.person_number}} Personne
+            </li>
+            <li class="list-inline-item">
+              <i class="fas fa-ruler-combined text-muted me-1"></i> {{house.area}} m2
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 column-divider-sm">
+          <div class="pl-md-4">
+            <h2 class="mb-0">{{house.price| currency: 'EUR'}}</h2>
+          </div>
+        </div>
+      </div>
+      <!-- End Row -->
+
+      <!-- Nav Scroller -->
+      <div class="js-nav-scroller hs-nav-scroller-horizontal">
+            <span class="hs-nav-scroller-arrow-prev" style="display: none;">
+              <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                <i class="bi-chevron-left"></i>
+              </a>
+            </span>
+
+        <span class="hs-nav-scroller-arrow-next" style="display: none;">
+              <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                <i class="bi-chevron-right"></i>
+              </a>
+            </span>
+
+        <!-- Nav -->
+        <ul class="nav nav-segment nav-fill mb-7" id="propertyOverviewNavTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" appContentTab id="propertyOverviewNavOne-tab"
+               data-bs-toggle="tab" data-bs-target="#propertyOverviewNavOne" role="tab"
+               aria-controls="propertyOverviewNavOne" aria-selected="true" style="min-width: 7rem;">Details</a>
+          </li>
+
+          <li class="nav-item" role="presentation">
+            <a appContentTab class="nav-link" id="propertyOverviewNavThree-tab"
+               data-bs-toggle="tab" data-bs-target="#propertyOverviewNavThree" role="tab"
+               aria-controls="propertyOverviewNavThree" aria-selected="false" style="min-width: 7rem;">Carte</a>
+          </li>
+
+        </ul>
+        <!-- End Nav -->
+      </div>
+      <!-- End Nav Scroller -->
+
+      <!-- Tab Content -->
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="propertyOverviewNavOne" role="tabpanel"
+             aria-labelledby="propertyOverviewNavOne-tab">
+          <div class="mb-4">
+            <h4>Détails</h4>
+          </div>
+
+          <div class="row justify-content-md-between">
+            <div class="col-md-5">
+              <dl class="row">
+                <!-- <dt class="col-6">ID:</dt>
+                <dd class="col-6">{{house.id}}</dd> -->
+
+                <dt class="col-6">Catégorie:</dt>
+                <dd class="col-6">{{house.category}}</dd>
+
+                <dt class="col-6">Thematique:</dt>
+                <dd class="col-6">{{house.thematic}}</dd>
+              </dl>
+              <!-- End Row -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-md-5">
+              <dl class="row">
+                <dt class="col-6">Chambre:</dt>
+                <dd class="col-6">{{house.bedroom_number}}</dd>
+
+                <dt class="col-6">Parking:</dt>
+                <dd class="col-6">{{house.parking_distance}} m</dd>
+              </dl>
+              <!-- End Row -->
+            </div>
+
+            <div class="col-md-5" *ngIf="house.properties">
+              <dl class="row" *ngFor="let property of house.properties">
+                <dt class="col-6">{{property.libelle}}:</dt>
+                <dd class="col-6">{{property.value}}</dd>
+              </dl>
+              <!-- End Row -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+          <hr>
+
+          <div class="mb-4">
+            <h4>Description</h4>
+          </div>
+
+          <p>{{house.description}}</p>
+
+          <hr class="my-6">
+
+          <div class="row">
+            <!-- End Col -->
+
+            <div class="col-md-6">
+              <dl class="row">
+                <dt class="col-6 mb-4">
+                  <i class="bi-lightning-charge-fill me-2"></i> Energy
+                </dt>
+                <dd class="col-6 text-end form-check form-switch">
+                  <input
+                    type="checkbox"
+                    [checked]="house.power"
+                    class="form-check-input"
+                    id="formSwitch1">
+                </dd>
+
+                <dt class="col-6">
+                  <i class="bi-droplet-half me-2"></i> Eau
+                </dt>
+                <dd class="col-6 text-end form-check form-switch">
+                  <input
+                    type="checkbox"
+                    [checked]="house.water"
+                    class="form-check-input"
+                    id="formSwitch2">
+                </dd>
+
+              </dl>
+              <!-- End Row -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+        <div class="tab-pane fade" id="propertyOverviewNavThree" role="tabpanel"
+             aria-labelledby="propertyOverviewNavThree-tab">
+          <!-- Gmap -->
+          <app-house-map
+            [latitude]="house.latitude"
+            [longitude]="house.longitude"
+          >
+          </app-house-map>
+          <!-- End Gmap -->
+        </div>
+      </div>
+      <!-- End Tab Content -->
+
+      <!-- End Row -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col-lg-5">
+      <!-- Sticky Block -->
+      <div id="stickyBlockStartPoint">
+        <div class="js-sticky-block"
+             data-hs-sticky-block-options='{
+                 "parentSelector": "#stickyBlockStartPoint",
+                 "breakpoint": "lg",
+                 "startPoint": "#stickyBlockStartPoint",
+                 "endPoint": "#stickyBlockEndPoint",
+                 "stickyOffsetTop": 24,
+                 "stickyOffsetBottom": 0
+               }'>
+          <!-- Card -->
+          <div class="card card-bordered">
+            <div class="card-body">
+              <div class="text-center" *ngIf="!isNotConnected()">
+                <a class="btn btn-sm btn-primary" data-bs-target="#exampleModalScrollable"
+                   href="javascript:;" (click)="emitAction(action.RESERVATION, house)">
+                  <i class="bi bi-calendar3"></i>
+                  Réserver cette hebergement
+                </a>
+              </div>
+              <div *ngIf="isNotConnected()">
+                <app-reservation
+                  [selectedHouseId]="house.id"
+                >
+                </app-reservation>
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+        </div>
+      </div>
+      <!-- End Sticky Block -->
+    </div>
+    <!-- End Col -->
+  </div>
+</ng-container>

@@ -1,0 +1,58 @@
+<form (ngSubmit)="emitAction()" [formGroup]="propertyForm">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="mb-4">
+        <app-input-text
+          [formName]="dataConst.forms.libelle"
+          [label]="dataConst.forms.labelLibelle"
+          [formGroup]="propertyForm"
+          [forInput]="'forAddPropertyLibelle'"
+          [placeHolder]="dataConst.forms.labelLibelle">
+        </app-input-text>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="mb-4">
+        <app-input-text
+          [formName]="dataConst.forms.description"
+          [label]="dataConst.forms.labelDescription"
+          [formGroup]="propertyForm"
+          [forInput]="'forAddPropertyDescription'"
+          [placeHolder]="dataConst.forms.labelDescription">
+        </app-input-text>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="tom-select-custom">
+        <app-input-label [forInput]="'AddPropertyCategory'">{{dataConst.forms.labelCategory}}</app-input-label>
+        <app-data-select
+          [data]="categories"
+          [formGroup]="propertyForm"
+          [formName]="'category'"
+          [placeHolder]="dataConst.forms.labelCategory">
+        </app-data-select>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="mb-4">
+        <app-input-switch
+          [formName]="dataConst.forms.is_required"
+          [forInput]="'forAddPropertyIsRequired'"
+          [formGroup]="propertyForm">
+          {{dataConst.forms.labelRequired}}
+        </app-input-switch>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <app-button-submit
+      [formGroup]="propertyForm"
+      [customClass]="'btn btn-primary btn-lg'">
+      {{displayBtnLabel()}}
+    </app-button-submit>
+  </div>
+</form>
+<!-- End Form -->

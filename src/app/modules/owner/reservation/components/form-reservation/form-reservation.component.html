@@ -1,0 +1,79 @@
+<form [formGroup]="formReservation" (ngSubmit)="emitAction()">
+  <div class="mb-4">
+    <app-date-input
+      [formName]="dataConst.forms.startDate"
+      [formGroup]="formReservation"
+      (onChangeDateAction)="onChange($event)"
+      [dateOptions]="dateOptions"
+      [placeHolder]="dataConst.forms.labelStartDate">
+    </app-date-input>
+  </div>
+
+  <div class="mb-4">
+    <app-input-text
+      [formName]="dataConst.forms.cardFirstName"
+      [label]="dataConst.forms.labelCardFirstName"
+      [formGroup]="formReservation"
+      [forInput]="'forReservationCardFirstName'"
+      [placeHolder]="dataConst.forms.labelCardFirstName">
+    </app-input-text>
+  </div>
+
+  <div class="mb-4">
+    <app-input-text
+      [formName]="dataConst.forms.cardLastName"
+      [label]="dataConst.forms.labelCardLastName"
+      [formGroup]="formReservation"
+      [forInput]="'forReservationCardFullName'"
+      [placeHolder]="dataConst.forms.labelCardLastName">
+    </app-input-text>
+  </div>
+
+  <div class="mb-4">
+    <app-input-text
+      [formName]="dataConst.forms.cardNumber"
+      [label]="dataConst.forms.labelCardNumber"
+      [formGroup]="formReservation"
+      [forInput]="'forReservationCardNumber'"
+      [placeHolder]="dataConst.forms.labelCardNumber">
+    </app-input-text>
+  </div>
+
+  <div class="mb-4">
+    <app-input-text
+      [formName]="dataConst.forms.expirationDate"
+      [label]="dataConst.forms.labelExpirationDate"
+      [formGroup]="formReservation"
+      [forInput]="'forReservationExpiration'"
+      [placeHolder]="dataConst.forms.labelExpirationDate">
+    </app-input-text>
+  </div>
+
+  <div class="mb-4">
+    <app-input-text
+      [formName]="dataConst.forms.amount"
+      [label]="dataConst.forms.labelAmount"
+      [formGroup]="formReservation"
+      [forInput]="'forReservationAmount'"
+      [placeHolder]="dataConst.forms.labelAmount">
+    </app-input-text>
+  </div>
+
+  <div class="mb-4">
+    <app-input-text
+      [formName]="dataConst.forms.cvc"
+      [label]="dataConst.forms.labelCvc"
+      [formGroup]="formReservation"
+      [forInput]="'forReservationCvc'"
+      [placeHolder]="dataConst.forms.labelCvc">
+    </app-input-text>
+  </div>
+
+  <div class="mb-4">
+    <app-button-submit
+      [formGroup]="formReservation"
+      [customClass]="'btn btn-primary btn-lg'">
+      {{dataConst.wording.saveReservation}}
+    </app-button-submit>
+  </div>
+</form>

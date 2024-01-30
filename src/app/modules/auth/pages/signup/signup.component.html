@@ -1,0 +1,98 @@
+<!-- Heading -->
+<div class="text-center mb-5 mb-md-7 mt-4">
+  <app-title [title]="authConst.wording.joinUs"></app-title>
+  <app-text-page [text]="authConst.wording.titleSignIn"></app-text-page>
+</div>
+<!-- End Heading -->
+<div class="text-center">
+  <a class="navbar-brand" href="../../../../index.html" aria-label="Front">
+    <img class="navbar-brand-logo" src="../../../../assets/logo/logo1.png" alt="Logo Atypikhouse">
+  </a>
+</div>
+<!-- Form -->
+<form class="js-validate needs-validation" (ngSubmit)="signUpClick()" [formGroup]="signupForm">
+
+  <div class="text-center">
+    <app-alert
+      [type]="alert"
+      *ngIf="alert">{{ messageResponse}}</app-alert>
+  </div>
+
+  <!-- Username -->
+  <div class="mb-3">
+    <app-input-text
+      [formGroup]="signupForm"
+      [forInput]="'signUpForUsername'"
+      [formName]="authConst.forms.username"
+      [label]="authConst.wording.username"
+      [placeHolder]="authConst.forms.usernamePlaceHolder"
+      [errorMessage]="authConst.forms.errors.username">
+    </app-input-text>
+  </div>
+  <!-- End Username -->
+
+  <!-- Email -->
+  <div class="mb-3">
+    <app-input-text
+      [formGroup]="signupForm"
+      [forInput]="'signUpForEmail'"
+      [formName]="authConst.forms.email"
+      [label]="authConst.wording.email"
+      [placeHolder]="authConst.forms.emailPlaceHolder"
+      [errorMessage]="authConst.forms.errors.email">
+    </app-input-text>
+  </div>
+  <!-- End Email -->
+
+  <!-- Password -->
+  <div class="mb-4">
+    <app-password-form
+      [formGroup]="signupForm"
+      [forInput]="'signUpForPassword'"
+      [formName]="authConst.forms.password"
+      [label]="authConst.wording.password"
+      [placeHolder]="authConst.forms.passwordPlaceHolder"
+    >
+    </app-password-form>
+  </div>
+  <!-- End Password -->
+
+  <!-- Confirm -->
+  <div class="mb-4">
+
+    <app-input-text
+      [formGroup]="signupForm"
+      [forInput]="'signUpForConfirm'"
+      [formName]="authConst.forms.confirm"
+      [label]="authConst.wording.confirm"
+      [placeHolder]="authConst.forms.confirmPlaceHolder"
+      [errorMessage]="authConst.forms.errors.confirm"
+      [type]="'password'">
+    </app-input-text>
+  </div>
+  <!-- End Password -->
+
+  <div class="d-grid mb-3">
+    <app-button-submit
+      [loading]="loading$ | async"
+      [formGroup]="signupForm"
+      [customClass]="'btn btn-primary btn-lg'">
+      {{authConst.wording.signUp}}
+    </app-button-submit>
+  </div>
+  <div class="d-flex justify-content-center mb-3">
+    <p class="mt-2">
+      <!-- ******************************************** à voir avec Daco -->
+      <app-google-login-button [buttonText]="'S\'inscrire avec Google'" (customSignin)="onCustomSignup()"></app-google-login-button>
+    </p>
+  </div>
+
+  <div class=" mb-3 ">
+    {{authConst.wording.alreadyMember}}
+    <app-link [urlLink]="'/auth/signin'">{{authConst.wording.goTosignIn}}</app-link>
+  </div>
+  <div class=" mb-3 ">
+    <app-link [urlLink]="'/'">{{authConst.wording.goHome}}</app-link>
+  </div>
+</form>
+<!-- End Form -->

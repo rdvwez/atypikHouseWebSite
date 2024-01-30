@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-header border-bottom card-header-content-sm-between">
+    <div class="js-nav-scroller hs-nav-scroller-horizontal">
+    </div>
+  </div>
+
+  <div class="card-body">
+    <app-house-detail
+      [house]="house$ | async"
+      (houseAction)="onActionHouse($event)"
+      [userState]="user"
+    ></app-house-detail>
+  </div>
+</div>

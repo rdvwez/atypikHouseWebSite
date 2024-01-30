@@ -1,0 +1,6 @@
+<app-users-list
+  [users]="$users | async"
+  [headers]="headers"
+  (user)="onSelectElement($event)"
+  [loading]="loading$ | async"
+></app-users-list>

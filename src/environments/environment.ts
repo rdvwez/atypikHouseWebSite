@@ -3,10 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  urlApi: 'http://localhost:5000/api/',
   production: false,
-  name: 'default',
-  version: 'v1.0',
-  backendServer: 'https://127.0.0.1:8000/api'
+  hostImage: 'http://localhost:5000/',
+  mapbox: "pk.eyJ1IjoidndleiIsImEiOiJjbHJpMG1xOHEwM3hjMmtxdnNmaG8yaGxrIn0.JbFutToOY9TickomRkvVog"
 };
 
 /*

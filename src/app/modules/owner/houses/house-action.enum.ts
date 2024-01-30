@@ -1,0 +1,5 @@
+export enum HouseActionEnum {
+  GOTO_MODIFY = 'GOTO_MODIFY',
+  RESERVATION = 'RESERVATION',
+  SEARCH_GLOBAL = 'SEARCH_GLOBAL'
+}

@@ -1,0 +1,38 @@
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main" class="bg-light">
+  <!-- Breadcrumb -->
+  <div class="navbar-dark bg-dark" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+    <div class="container content-space-1 content-space-b-lg-3">
+      <app-header-title [titlePage]="titlePage" (action)="setAction($event)"></app-header-title>
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Breadcrumb -->
+
+  <!-- Content Section -->
+  <div class="container-fluid content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-lg-n10">
+    <div class="row">
+      <div class="col-lg-3">
+        <!-- Navbar -->
+        <app-aside-owner
+          [navigations]="navigations$ | async"
+          [user]="userConnected$ | async"
+          (itemNavigation)="setLink($event)"
+        ></app-aside-owner>
+        <!-- End Navbar -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-lg-9">
+        <!-- Card -->
+        <router-outlet></router-outlet>
+        <!-- End Card -->
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Content Section -->
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
+<app-footer></app-footer>

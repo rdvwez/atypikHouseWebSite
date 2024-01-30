@@ -1,0 +1,10 @@
+<div class="nav-item">
+  <a class="nav-link"
+     (click)="emitItem()"
+     [routerLink]="[this.item.path]"
+     [ngClass]="{'active': item.isActive}"
+     data-placement="left">
+    <i [class]="item.classIcon + ' nav-icon'"></i>
+    <span class="nav-link-title">{{item.title}}</span>
+  </a>
+</div>

@@ -1,0 +1,15 @@
+<div class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
+  <!-- header -->
+  <app-topbar-admin [profile]="profile" (topBarAction)="topBarAction($event)"></app-topbar-admin>
+  <!-- end header -->
+  <aside-admin [menuAdmin]="menuAdmin$ | async"></aside-admin>
+
+  <main id="content" role="main" class="main pt-8">
+    <div class="content container-fluid">
+      <app-title-page
+        [activeMenu]="menuActive$ | async">
+      </app-title-page>
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

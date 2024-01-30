@@ -3,16 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "atypikHouseProject": {
+    "hatypikhouse-front": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -20,18 +13,34 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/atypikHouseProject/browser",
+            "outputPath": "dist/hatypikhouse-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              "src/logo3.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
+              {
+                "input": "src/assets/css/theme.min.css",
+                "bundleName": "theme",
+                "inject": false
+              },
+              {
+                "input": "src/assets/css/theme2.min.css",
+                "bundleName": "theme2",
+                "inject": false
+              },
+              "node_modules/aos/dist/aos.css",
+              "src/assets/vendor/hs-mega-menu/dist/hs-mega-menu.css",
+              // flatpickr date
+              "node_modules/flatpickr/dist/flatpickr.min.css",
+              "node_modules/flatpickr/dist/themes/airbnb.css",
+              "mapbox-gl/dist/mapbox-gl.css"
             ],
             "scripts": []
           },
@@ -40,8 +49,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -72,10 +81,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "atypikHouseProject:build:production"
+              "browserTarget": "hatypikhouse-front:build:production"
             },
             "development": {
-              "browserTarget": "atypikHouseProject:build:development"
+              "browserTarget": "hatypikhouse-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +92,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "atypikHouseProject:build"
+            "browserTarget": "hatypikhouse-front:build"
           }
         },
         "test": {
@@ -93,78 +102,20 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/atypikHouseProject/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json",
-            "inlineStyleLanguage": "scss"
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "development": {
-              "optimization": false,
-              "sourceMap": true,
-              "extractLicenses": false
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "atypikHouseProject:build:development",
-              "serverTarget": "atypikHouseProject:server:development"
-            },
-            "production": {
-              "browserTarget": "atypikHouseProject:build:production",
-              "serverTarget": "atypikHouseProject:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "atypikHouseProject:build:production",
-              "serverTarget": "atypikHouseProject:server:production"
-            },
-            "development": {
-              "browserTarget": "atypikHouseProject:build:development",
-              "serverTarget": "atypikHouseProject:server:development"
-            }
-          },
-          "defaultConfiguration": "production"
         }
       }
     }
   },
-  "defaultProject": "atypikHouseProject"
+  "cli": {
+    "analytics": false
+  }
 }
