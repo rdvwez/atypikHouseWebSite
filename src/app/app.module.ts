@@ -1,75 +1,57 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {LOCALE_ID, NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { BodyComponent } from './body/body.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { HebergementsComponent } from './hebergements/hebergements.component';
-import { DestinationsComponent } from './destinations/destinations.component';
-import { RegisterComponent } from './register/register.component';
-import { SearchbarComponent } from './body/searchbar/searchbar.component';
-import { LocationListComponent } from './body/location-list/location-list.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
-
+import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { AccountComponent } from './account/account.component';
-import { TransferHttpCacheModule } from '@nguniversal/common'
+import {RouterModule} from '@angular/router';
+import {AppRoutingModule} from './app-routing.module';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {appReducer} from './shared/store/app.state';
+import {environment} from '../environments/environment';
+import {AuthService} from './modules/auth/shared/service/auth.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {TokenService} from './modules/auth/shared/service/token.service';
+import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
+import {TokenInterceptor} from './modules/auth/shared/interceptors/token.interceptor';
+import {AuthEffect, UserConnectedEffect} from './modules/auth/shared/store';
+import {InitialDataResolver} from './initial-data.resolver';
+import localeFr from '@angular/common/locales/fr';
+import {registerLocaleData} from '@angular/common';
 
-import { HeadhComponent } from './headh/headh.component';
-import { FooterbComponent } from './footerb/footerb.component';
-import { HeaddComponent } from './headd/headd.component';
-import { IdeesComponent } from './idees/idees.component';
-import { HeadiComponent } from './headi/headi.component';
-import {TokenService} from "./shared/services/token.service";
-import {AuthconfigInterceptor} from "./shared/interceptors/authconfig.interceptor";
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    BodyComponent,
-    FooterComponent,
-    LoginComponent,
-    HomeComponent,
-    HebergementsComponent,
-    DestinationsComponent,
-    SearchbarComponent,
-    LocationListComponent,
-    RegisterComponent,
-    AccountComponent,
-    RegisterComponent,
-    SearchbarComponent,
-    LocationListComponent,
-    HeadhComponent,
-    FooterbComponent,
-    HeaddComponent,
-    IdeesComponent,
-    HeadiComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
     NgbModule,
-    TransferHttpCacheModule,
+    RouterModule,
+    AppRoutingModule,
+    HttpClientModule,
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([UserConnectedEffect, AuthEffect]),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production})
   ],
   providers: [
+    AuthService,
     TokenService,
     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthconfigInterceptor,
-      multi: true
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true
+    },
+    InitialDataResolver,
+    {
+      provide: LOCALE_ID,
+      useValue: 'fr-FR'
     }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
