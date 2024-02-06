@@ -4,6 +4,13 @@ To use this projetc, you should first clone the  [repository](https://gitlab.com
 
 ## Development server
 
+##  Use AtypikHouse Web site in  developpement mode:
+
+- Lunch docker compose on your tem:
+	 `
+	 	sudo docker compose -f docker-compose.front.yml up
+	 `
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
