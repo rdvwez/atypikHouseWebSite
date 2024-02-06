@@ -1,7 +1,34 @@
-FROM node:14-alpine
+FROM node:latest as builder
 
 WORKDIR /app
-COPY package.json .
+COPY package*.json ./
 RUN npm install
+COPY . .
+RUN npm run build
 
-CMD ["npm", "start"]
+FROM node:latest as prepare
+# Copier les fichiers nécessaires depuis le builder
+# COPY --from=builder /var/jenkins_home/workspace/front-multibranches-pipeline_dev/angular/dist/the-tiptop-front/server /app/server
+COPY --from=builder /app/dist/hatypikhouse-front /app
+
+FROM nginx:alpine
+# Installer Node.js
+RUN apk add --no-cache nodejs
+
+# Copier les fichiers statiques pour Nginx
+COPY --from=prepare /app /usr/share/nginx/html
+
+# Copier également les fichiers statiques pour le serveur Node.js selon le chemin attendu
+COPY --from=prepare /app /dist/hatypikhouse-front
+
+COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+# COPY --from=builder /app/dist/hatypikhouse-front /usr/share/nginx/html
+
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+EXPOSE 80 4200
+
+CMD ["/start.sh"]
+
+# CMD ["npm", "start"]
