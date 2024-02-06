@@ -10,7 +10,7 @@
     }
 } */
 
-section.mention{
+/* section.mention{
     div.mention-text{
         width: 70%;
         font-size: 1.2rem;
@@ -18,5 +18,17 @@ section.mention{
         h2{
             font-size: 2rem;
         }
+    }
+} */
+
+section.mention {
+    width: 70%;
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+section.mention div.mention-text {
+    h2 {
+        font-size: 2rem;
     }
 }

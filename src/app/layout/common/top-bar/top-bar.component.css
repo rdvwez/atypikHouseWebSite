@@ -1,11 +1,9 @@
 .dropdown-toggle:after {
-  content: none
+  content: none;
 }
 
-div.top-bar {
-  p {
-      background: #212529;
-      color: #fff;
-      padding: 5px;
-  }
+div.top-bar p {
+  background: #212529;
+  color: #fff;
+  padding: 5px;
 }

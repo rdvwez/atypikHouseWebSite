@@ -1,8 +1,15 @@
-# HatypikhouseFront
+# AtypikHouse Front the web site
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
+To use this projetc, you should first clone the  [repository](https://gitlab.com/Vwez/atypikhouseproject) from Gitlab.
 
 ## Development server
+
+##  Use AtypikHouse Web site in  developpement mode:
+
+- Lunch docker compose on your tem:
+	 `
+	 	sudo docker compose -f docker-compose.front.yml up
+	 `
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
@@ -22,6 +29,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
