@@ -1,4 +1,4 @@
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {Injectable, OnDestroy} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {first, forkJoin, Observable, Subject, tap} from 'rxjs';
@@ -8,7 +8,7 @@ import {AccessService} from '../auth/shared/service/access.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ClientDataResolver implements Resolve<any>, OnDestroy {
+export class ClientDataResolver  implements OnDestroy {
   private destroyed$: Subject<void> = new Subject();
 
   constructor(private _store: Store, private _accessService: AccessService) {

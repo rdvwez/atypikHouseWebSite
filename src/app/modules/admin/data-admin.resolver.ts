@@ -1,4 +1,4 @@
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {first, forkJoin, Observable, tap} from 'rxjs';
@@ -8,7 +8,7 @@ import {ModuleNavigationEnum, NavigationActions} from '../../layout/layouts/admi
 @Injectable({
   providedIn: 'root'
 })
-export class DataAdminResolver implements Resolve<any> {
+export class DataAdminResolver  {
 
   constructor(private _store: Store, private _accessService: AccessService) {
   }
