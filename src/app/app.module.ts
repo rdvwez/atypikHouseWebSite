@@ -34,7 +34,7 @@ registerLocaleData(localeFr);
     HttpClientModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([UserConnectedEffect, AuthEffect]),
-    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production})
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production, connectInZone: true})
   ],
   providers: [
     AuthService,
