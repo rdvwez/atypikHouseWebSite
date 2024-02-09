@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     ports:
-      - 4200:80  # Assurez-vous que le Dockerfile configure votre application Angular pour servir sur le port 80, sinon ajustez-le
+      - 4000:80  # Assurez-vous que le Dockerfile configure votre application Angular pour servir sur le port 80, sinon ajustez-le
     # expose:
     #   - 80
     networks:
