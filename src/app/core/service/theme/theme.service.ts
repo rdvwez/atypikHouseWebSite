@@ -25,7 +25,7 @@ export class ThemeService {
       style.id = 'client-theme';
       style.rel = 'stylesheet';
       style.href = `${this.dirAsset}${themeName}.min.css`;
-      head.append(style);
+      head.appendChild(style);
     }
   }
 }
