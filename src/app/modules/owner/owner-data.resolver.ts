@@ -1,4 +1,4 @@
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {first, forkJoin, Observable, tap} from 'rxjs';
@@ -8,7 +8,7 @@ import {AccessService} from '../auth/shared/service/access.service';
 @Injectable({
   providedIn: 'root'
 })
-export class OwnerDataResolver implements Resolve<any> {
+export class OwnerDataResolver  {
 
   constructor(private _store: Store, private _accessService: AccessService) {
   }

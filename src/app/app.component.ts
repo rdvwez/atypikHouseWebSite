@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { TransferState } from '@angular/platform-browser';
 import {TokenService} from './modules/auth/shared/service/token.service';
 import {ThemeService} from './core/service/theme/theme.service';
 import {NavigationEnd, Router} from '@angular/router';
@@ -17,7 +18,8 @@ export class AppComponent {
     private accessService: TokenService,
     private theme: ThemeService,
     private _router: Router,
-    private _store: Store) {
+    private _store: Store,
+    private transferState: TransferState) {
     // load theme
     this.theme.loadTheme('theme');
     // activated url

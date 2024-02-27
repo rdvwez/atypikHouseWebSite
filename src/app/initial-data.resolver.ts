@@ -1,5 +1,5 @@
 import {Injectable, OnDestroy} from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {first, forkJoin, Observable, Subject, takeUntil, tap} from 'rxjs';
 import {select, Store} from '@ngrx/store';
 import {navigations} from './layout/common/navigation/store';
@@ -10,7 +10,7 @@ import {AccessService} from './modules/auth/shared/service/access.service';
   providedIn: 'root'
 })
 
-export class InitialDataResolver implements Resolve<any>, OnDestroy {
+export class InitialDataResolver  implements OnDestroy {
   private destroyed$: Subject<void> = new Subject<void>();
   isAuthenticated$: Observable<boolean> = this._store.pipe(select(selectIsAuthenticated), takeUntil(this.destroyed$));
 

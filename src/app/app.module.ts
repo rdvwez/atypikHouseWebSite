@@ -1,5 +1,5 @@
 import {LOCALE_ID, NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, provideClientHydration} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -34,7 +34,7 @@ registerLocaleData(localeFr);
     HttpClientModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([UserConnectedEffect, AuthEffect]),
-    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production})
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production, connectInZone: true})
   ],
   providers: [
     AuthService,
@@ -49,7 +49,8 @@ registerLocaleData(localeFr);
     {
       provide: LOCALE_ID,
       useValue: 'fr-FR'
-    }
+    },
+    provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })

@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/hatypikhouse-front",
+            "outputPath": "dist/hatypikhouse-front/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -81,10 +81,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "hatypikhouse-front:build:production"
+              "buildTarget": "hatypikhouse-front:build:production"
             },
             "development": {
-              "browserTarget": "hatypikhouse-front:build:development"
+              "buildTarget": "hatypikhouse-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,7 +92,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hatypikhouse-front:build"
+            "buildTarget": "hatypikhouse-front:build"
           }
         },
         "test": {
@@ -111,6 +111,66 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/hatypikhouse-front/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "hatypikhouse-front:build:development",
+              "serverTarget": "hatypikhouse-front:server:development"
+            },
+            "production": {
+              "browserTarget": "hatypikhouse-front:build:production",
+              "serverTarget": "hatypikhouse-front:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "hatypikhouse-front:build:production",
+              "serverTarget": "hatypikhouse-front:server:production"
+            },
+            "development": {
+              "browserTarget": "hatypikhouse-front:build:development",
+              "serverTarget": "hatypikhouse-front:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
