@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  urlApi: 'http://localhost:5000/api/', //il faut remplacer local hoste par le veritable adresse ip
+  urlApi: 'https://api.f2i-dev2-dv.fr/api', //il faut remplacer local hoste par le veritable adresse ip
   production: false,
-  hostImage: 'http://localhost:5000/', //il faut remplacer local hoste par le veritable adresse ip
+  hostImage: 'https://api.f2i-dev2-dv.fr/', //il faut remplacer local hoste par le veritable adresse ip
   mapbox: "pk.eyJ1IjoidndleiIsImEiOiJjbHJpMG1xOHEwM3hjMmtxdnNmaG8yaGxrIn0.JbFutToOY9TickomRkvVog"
 };
 

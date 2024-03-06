@@ -1,6 +1,6 @@
 export const environment = {
-  urlApi: 'http://127.0.0.1:5000/api/',
+  urlApi: 'https://api.f2i-dev2-dv.fr/api',
   production: true,
-  hostImage: 'http://localhost:5000/',
+  hostImage: 'https://api.f2i-dev2-dv.fr/',
   mapbox: "pk.eyJ1IjoidndleiIsImEiOiJjbHJpMG1xOHEwM3hjMmtxdnNmaG8yaGxrIn0.JbFutToOY9TickomRkvVog"
 };
